@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tarea Semana 13</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+		<script src="lib/Tween.js"></script>
+
+		<link rel="Stylesheet" href="css/estilo.css">
+	
+	</head>
+	<body>
+		
+		<div id="contenedorInicio" >
+			<div id="contenedorLogin">
+ 					<ul class="list-group" id="lgLogin" >
+						<li class="list-group-item" id="lgInicioItem" >
+								<div id="msgLogin"></div>
+								<h2>Login</h2><br>
+			  					<input type="text" id="inUsuario" name="inUsuario" placeholder="Nombre de Usuario" autofocus class="form-control">
+			  					<input type="password" id="inContrasena" name="inContrasena" placeholder="Contraseña" class="form-control"><br>
+							  	<button id="btnEntrarLogin" type="button" class="btn btn-danger">Entrar</button>
+					  	</li>
+					</ul>
+				</div>
+				<div id="contenedorSignin">
+ 					<ul class="list-group" id="lgLogin" >
+						<li class="list-group-item" id="lgInicioItem" >
+								<div id="msgSignin"></div>
+								<h2>Sign in</h2><br>
+			  					<input type="text" id="inUsuario2" name="inUsuario2" placeholder="Nombre de Usuario" autofocus class="form-control">
+			  					<input type="text" id="inContrasena2" name="inContrasena2" placeholder="Contraseña" class="form-control">
+			  					<input type="text" id="inNombre" name="inNombre" placeholder="Nombre" class="form-control">
+			  					<input type="text" id="inApellidos" name="inApellidos" placeholder="Apellidos" class="form-control">
+			  					<br>
+							  	<button id="btnEntrarSignin" type="button" class="btn btn-danger">Entrar</button>
+					  	</li>
+					</ul>
+				</div>
+		</div>
+		<div id="contenedorJuego">
+			<div id="contenedorLienzos">
+				<canvas id="lienzoFondo" width="512" height="512"></canvas>
+			</div>
+		</div>
+		<div id="contenedorMenu" >
+			<p id="idLogin" class="menuIzq">Login </p>
+			<p id="idSignin" class="menuIzq">Sign In</p>
+		</div>
+				
+		<script src="lib/jquery.js"></script>
+		<script src="lib/rotatecanvas.js"></script>
+		<script src="js/clases/Graficos.js"></script>
+		<script src="js/clases/Camara.js"></script>
+		<script src="js/clases/Mapa.js"></script>
+		<script src="js/clases/Personaje.js"></script>
+		<script src="js/clases/Bola.js"></script>
+		<script src="js/funcionesInicio.js"></script>
+		<script src="js/condicionesIniciales.js"></script>
+		<script src="js/inicio.js"></script>
+		<script src="js/controles.js"></script>
+		<script src="js/bucle.js"></script>
+		<script src="js/logica.js"></script>
+		
+	</body>
+</html>
