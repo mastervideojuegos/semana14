@@ -1,7 +1,6 @@
 function inicio(){
 	$( document ).ready(function() {
 		reescalaVentana();
-		//bucle();
 	});
 
 	$(window).resize(function(){
@@ -34,10 +33,10 @@ function inicio(){
 	$( "#btnEntrarLogin" ).click(function() {
 		//if(banBD){
 			//enviarAjaxLogin($("#inUsuario").val(),$("#inContrasena").val());
+		//}
 		$( "#contenedorLogin" ).hide();
 		$( "#contenedorJuego" ).show();
 		bucle();
-		//}
 	});
  //Boton Entrar SingIn
 	$( "#btnEntrarSignin" ).click(function() {
