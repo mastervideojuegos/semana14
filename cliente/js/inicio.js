@@ -1,43 +1,43 @@
 function inicio(){
 	$( document ).ready(function() {
 		reescalaVentana();
-		
+
 		bucle();
 	});
-		
+
 	$(window).resize(function(){
 		reescalaVentana();
 	})
 	controles();
-	
+
 	$( "#idLogin" ).click(function() {
 		$("#inUsuario").val("")
 		$("#inContrasena").val("")
-		
+
 		$("#msgLogin").text("")
 		$( "#contenedorLogin" ).show();
 		$( "#contenedorSignin" ).hide();
-		
+
 	});
  //Boton SingIn
 	$( "#idSignin" ).click(function() {
-		
+
 		$("#inUsuario2").val("")
 		$("#inContrasena2").val("")
 		$("#inNombre").val("")
 		$("#inApellidos").val("")
-		
+
 		$( "#contenedorLogin" ).hide();
 		$( "#contenedorSignin" ).show();
 	});
-	
+
  //Boton Entrar LogIn
 	$( "#btnEntrarLogin" ).click(function() {
 		if(banBD){
 			enviarAjaxLogin($("#inUsuario").val(),$("#inContrasena").val());
 			//$( "#contenedorLogin" ).hide();
 		//$( "#contenedorJuego" ).show();
-		
+			//DK//
 			//bucle();
 		}
 	});
@@ -52,6 +52,6 @@ function inicio(){
 			enviarAjaxSignin(usr,psw,nombre,apellidos);
 		}
 	});
-	
-	
+
+
 }
