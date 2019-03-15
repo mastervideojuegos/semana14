@@ -3,13 +3,13 @@ function Bola()
     this.tamanio    = 16;
     this.posX       = Math.random()*512;
     this.posY       = Math.random()*512 ;
-    
-    this.avanceX = 5;
-    this.avanceY = 5;
+    this.velocidad  = 1;
+    this.avanceX    = 5;
+    this.avanceY    = 5;
     
     this.colicionPared = function(px,py)
     {
-        if(px <=-45 || px >=622)
+        if(px <=-45 || px >=1300)
         {
             this.avanceX *=-1;        
         }
@@ -21,22 +21,16 @@ function Bola()
     
     this.moverse = function()
     {
-        var tmpX = this.posX + this.avanceX;
-        var tmpY = this.posY + this.avanceY;
+        var tmpX = this.posX + (this.avanceX * this.velocidad);
+        var tmpY = this.posY + (this.avanceY * this.velocidad);
         this.colicionPared(tmpX,tmpY);
         
-        this.posX += this.avanceX;
-        this.posY += this.avanceY;
+        this.posX += this.avanceX * this.velocidad;
+        this.posY += this.avanceY * this.velocidad;
     }
     
     this.Dibujar = function(ctx,camara)
-    {/*
-        ctx.fillStyle="white";
-        ctx.beginPath();
-        ctx.arc(this.posX+camara.posX,this.posY+camara.posY,this.tamanio,0,Math.PI*2,true);
-        ctx.fill();
-        ctx.closePath();
-        */
+    {
         ctx.drawImage(bolaActual, this.posX+camara.posX, this.posY+camara.posY, this.tamanio, this.tamanio);
     }   
 }
