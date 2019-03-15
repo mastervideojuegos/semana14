@@ -26,7 +26,6 @@ function bucle()
     personaje.Dibujar(contextoFondo,camara);
     
     bola.Dibujar(contextoFondo,camara);
-    
     clearTimeout(temporizador);
     temporizador = setTimeout("bucle()", 30);
 }

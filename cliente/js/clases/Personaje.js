@@ -21,18 +21,15 @@ function Personaje()
     
     this.moverse = function()
     {
-        //console.log("PosY: "+this.posY, "Largo: "+this.largo)
-        this.posY += this.vel*this.direccion;
-        this.colicionPared();
+        if(!bCongelaJugador)
+        {
+            this.posY += this.vel*this.direccion;
+            this.colicionPared();
+        }
     }
     
     this.Dibujar = function(ctx,camara)
     {
         ctx.drawImage(personajeActual, this.posX+camara.posX, this.posY+camara.posY-this.largo*0.5, this.largo*0.5, this.largo);
-        /*ctx.fillStyle="white";
-        //ctx.strokeStyle ="white";
-        ctx.rect(this.posX+camara.posX,this.posY+camara.posY-this.largo/2,5,this.largo);
-        //ctx.fill();
-        ctx.stroke(); */
     } 
 }
