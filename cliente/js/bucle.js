@@ -28,5 +28,5 @@ function bucle()
     bola.Dibujar(contextoFondo,camara);
     
     clearTimeout(temporizador);
-    temporizador = setTimeout("bucle()", 60);
+    temporizador = setTimeout("bucle()", 30);
 }
