@@ -2,7 +2,7 @@ function inicio(){
 	$( document ).ready(function() {
 		reescalaVentana();
 		
-		bucle();
+		//bucle();
 	});
 		
 	$(window).resize(function(){
@@ -33,13 +33,12 @@ function inicio(){
 	
  //Boton Entrar LogIn
 	$( "#btnEntrarLogin" ).click(function() {
-		if(banBD){
-			enviarAjaxLogin($("#inUsuario").val(),$("#inContrasena").val());
-			//$( "#contenedorLogin" ).hide();
-		//$( "#contenedorJuego" ).show();
-		
-			//bucle();
-		}
+		//if(banBD){
+			//enviarAjaxLogin($("#inUsuario").val(),$("#inContrasena").val());
+		$( "#contenedorLogin" ).hide();
+		$( "#contenedorJuego" ).show();
+		bucle();
+		//}
 	});
  //Boton Entrar SingIn
 	$( "#btnEntrarSignin" ).click(function() {
