@@ -4,11 +4,13 @@ function inicio(){
 		bucle();
 		//testjfra
 		
+		//bucle();
 	});
 
 	$(window).resize(function(){
 		//reescalaVentana();
 		//Prueba#2
+		reescalaVentana();
 	})
 	controles();
 
@@ -39,7 +41,6 @@ function inicio(){
 			//enviarAjaxLogin($("#inUsuario").val(),$("#inContrasena").val());
 		$( "#contenedorLogin" ).hide();
 		$( "#contenedorJuego" ).show();
-			//DK//
 		bucle();
 		//}
 	});
