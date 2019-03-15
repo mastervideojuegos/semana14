@@ -1,7 +1,6 @@
 function inicio(){
 	$( document ).ready(function() {
 		reescalaVentana();
-		//testjfra
 		//bucle();
 	});
 
