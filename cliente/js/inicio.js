@@ -1,14 +1,13 @@
 function inicio(){
 	$( document ).ready(function() {
 		reescalaVentana();
-		bucle();
-		//testjfra
+		//bucle();
 		
 	});
 
 	$(window).resize(function(){
-		//reescalaVentana();
-		//Prueba#2
+		reescalaVentana();
+		
 	})
 	controles();
 
