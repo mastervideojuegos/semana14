@@ -5,7 +5,8 @@ function inicio(){
 	});
 
 	$(window).resize(function(){
-		reescalaVentana();
+		//reescalaVentana();
+		//Prueba#2
 	})
 	controles();
 
