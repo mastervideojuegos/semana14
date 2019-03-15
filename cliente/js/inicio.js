@@ -1,7 +1,9 @@
 function inicio(){
 	$( document ).ready(function() {
 		reescalaVentana();
-		//bucle();
+		bucle();
+		//testjfra
+		
 	});
 
 	$(window).resize(function(){
