@@ -16,10 +16,10 @@ function controles(){
             //console.log("Pulsado")
             player[0].sprint=1;
             //sonido.playLaser();
-          
+
         }
     });
-    
+
      $(document).keyup(function(event){
          // Esto es lo que pasa cuando pulso la W
         if ( event.which == 87 ) {player[0].avance = 0;}
@@ -32,28 +32,28 @@ function controles(){
         // Esto es lo que pasa cuando levanto el espacio
         if ( event.which == 32 ) {player[0].sprint = 0;}
     });*/
-	
-	
+
+
 	$(document).keydown(function(event) {
         if (event.which == 87) {
             //console.log("Pulsado Arriba");////Para subir la paleta/tabla
-            movimientoJugador=true;        
-			Jugadores[0].direccion=-1;
+            movimientoJugador=true;
+			         jugadores[0].direccion=-1;
         }
-		
+
 		if (event.which == 83) {
            // console.log("Pulsado Abajo");//Para bajar la paleta/tabla
-            movimientoJugador=true; 
-			Jugadores[0].direccion=1;		
-          
+            movimientoJugador=true;
+			jugadores[0].direccion=1;
+
         }
     });
-	
+
 	$(document).keyup(function(event){
          // Esto es lo que pasa cuando suelto la W
         if ( event.which == 87 ) {movimientoJugador=false;}
         // Esto es lo que pasa cuando suelto la S
         if ( event.which == 83 ) {movimientoJugador=false;}
-        
+
     });
 }

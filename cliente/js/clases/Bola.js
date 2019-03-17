@@ -31,7 +31,7 @@ function Bola()
 			py >=(personaje.posY -personaje.largo) &&
 			py <=(personaje.posY +personaje.largo)
 			){
-			console.log("colicion")
+			console.log("colicion fin")
 			this.avanceX *=-1;
 		}
 
@@ -39,17 +39,18 @@ function Bola()
 
     this.moverse = function()
     {
+        //console.log("moviendose");
         var tmpX = this.posX + (this.avanceX * this.velocidad);
         var tmpY = this.posY + (this.avanceY * this.velocidad);
 
-        this.colicionPared(tmpX,tmpY);
-		this.colicionPersonajes(tmpX,tmpY);
+          this.colicionPared(tmpX,tmpY);
+		      this.colicionPersonajes(tmpX,tmpY);
 
         this.posX += this.avanceX * this.velocidad;
         this.posY += this.avanceY * this.velocidad;
     }
 
-    this.Dibujar = function(ctx,camara)
+    this.dibujar = function(ctx,camara)
     {
         ctx.drawImage(bolaActual, this.posX+camara.posX, this.posY+camara.posY, this.tamanio, this.tamanio);
     }

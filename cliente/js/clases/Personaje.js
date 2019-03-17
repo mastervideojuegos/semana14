@@ -5,8 +5,8 @@ function Personaje(eq,principal)
     this.posY       = Math.random()*612+this.largo;
     this.vel = 10;
     this.direccion = 1;
-	
-	
+
+
 	this.ID=1;
 	this.equipo=eq;
 	this.principal=principal;
@@ -32,7 +32,7 @@ function Personaje(eq,principal)
         }
     }
 
-    this.Dibujar = function(ctx,camara)
+    this.dibujar = function(ctx,camara)
     {
         ctx.drawImage(personajeActual, this.posX+camara.posX, this.posY+camara.posY-this.largo*0.5, this.largo*0.5, this.largo);
     }
