@@ -1,11 +1,21 @@
 function Personaje()
-{
+{	
+	//Variables BD
+	this.usuario = usuario;
+    this.id = parseInt(idUsr);
+    this.idSala = parseInt(idSala);
+    
+    this.listo = 0;
+	
+	
     this.largo      = 32;
     this.posX       = 600;
     this.posY       = Math.random()*612+this.largo;
     
     this.vel = 10;
     this.direccion = 1;
+	
+	this.listo = false;
     
     this.colicionPared = function()
     {

@@ -35,8 +35,8 @@ function inicio(){
 			//enviarAjaxLogin($("#inUsuario").val(),$("#inContrasena").val());
 		//}
 		$( "#contenedorLogin" ).hide();
-		$( "#contenedorJuego" ).show();
-		bucle();
+		$( "#contenedorSala" ).show();
+		bucleespera();
 	});
  //Boton Entrar SingIn
 	$( "#btnEntrarSignin" ).click(function() {
@@ -50,5 +50,10 @@ function inicio(){
 		}
 	});
 
-
+ //Boton Listo
+	$( "#btnListo" ).click(function() {
+    	$( "#btnListo" ).attr("disabled", "disabled");
+		$( "#contenedorSala" ).hide();
+    	personaje[0].listo = 1;
+	});
 }

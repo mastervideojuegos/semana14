@@ -86,4 +86,38 @@ body
 	background-color: transparent;
 	display:none;
 }
+
+#contenedorSala{
+	position:absolute;
+	overflow: hidden;
+	top:0px;
+	left:0px;
+    margin:0px;
+
+}
+
+#btnListo{
+    font-size: 18px;
+    position: absolute;
 	
+    text-align: center;
+    border:3px solid black; 
+    left:25%;
+    top:60%;
+    
+}
+
+#list-group-item{
+     height:100%;
+}
+
+#tituloSala1,
+#tituloSala2{
+	color:yellow;
+}
+
+#contenedorLista{
+	width:50%;
+	text-align:center;
+	
+}

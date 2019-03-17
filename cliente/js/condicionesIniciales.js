@@ -14,10 +14,12 @@ var mapa2 = true;
 var temporizador; 
 var bola = new Bola();
 
-var personaje = new Personaje();
+var personaje = new Array();
 var camara  = new Camara();
 var mapa = new Mapa();
 
+var usuario = "";
+var banConfirmacion = false;
 var banBD = true;
 
 
