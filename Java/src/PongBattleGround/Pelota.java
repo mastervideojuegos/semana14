@@ -1,23 +1,24 @@
 package PongBattleGround;
 
-import static PongBattleGround.Config.BALL_RIGHT;
 import javax.swing.ImageIcon;
 
 
 public class Pelota extends Sprite implements Config {
 
-   private int xdir;
-   private int ydir;
+   private int dirX;
+   private int dirY;
+   private int velX;
+   private int velY;
 
    protected String ball = "/img/pixar.png";
 
    public Pelota() {
 
-     xdir = 1;
-     ydir = -1;
+     dirX = 1;
+     dirY = -1;
 
-     ImageIcon ii = new ImageIcon(this.getClass().getResource(ball));
-     image = ii.getImage();
+     ImageIcon imgPelota = new ImageIcon(this.getClass().getResource(ball));
+     image = imgPelota.getImage();
 
      width = image.getWidth(null);
      heigth = image.getHeight(null);
@@ -28,18 +29,18 @@ public class Pelota extends Sprite implements Config {
 
     public void move()
     {
-      x += xdir;
-      y += ydir;
+      posX += dirX;
+      posY += dirY;
 
-      if (x == 0) {
+      if (posX == 0) {
         setXDir(1);
       }
 
-      if (x == BALL_RIGHT) {
+      if (posX == BALL_RIGHT) {
         setXDir(-1);
       }
 
-      if (y == 0) {
+      if (posY == 0) {
         setYDir(1);
       }
       
@@ -47,22 +48,22 @@ public class Pelota extends Sprite implements Config {
     //PUNTO INICIAL PELOTA
     public void resetState() 
     {
-      x = 230;
-      y = 355;
+      posX = 230;
+      posY = 355;
     }
 
-    public void setXDir(int x)
+    public void setXDir(int posX)
     {
-      xdir = x;
+      dirX = posX;
     }
 
-    public void setYDir(int y)
+    public void setYDir(int posY)
     {
-      ydir = y;
+      dirY = posY;
     }
 
     public int getYDir()
     {
-      return ydir;
+      return dirY;
     }
 }

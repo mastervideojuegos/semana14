@@ -8,9 +8,9 @@ public class Recogible extends Sprite {
 
     boolean destroyed;
 
-    public Recogible(int x, int y) {
-      this.x = x;
-      this.y = y;
+    public Recogible(int posX, int posY) {
+      this.posX = posX;
+      this.posY = posY;
 
       ImageIcon imgBloque = new ImageIcon(this.getClass().getResource(brickie));
       image = imgBloque.getImage();

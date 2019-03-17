@@ -7,27 +7,27 @@ import java.awt.Rectangle;
 
 public class Sprite {
 
-    protected int x;
-    protected int y;
+    protected int posX;
+    protected int posY;
     protected int width;
     protected int heigth;
     protected Image image;
 
 
-    public void setX(int x) {
-        this.x = x;
+    public void setX(int posX) {
+        this.posX = posX;
     }
 
     public int getX() {
-        return x;
+        return posX;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setY(int posY) {
+        this.posY = posY;
     }
 
     public int getY() {
-        return y;
+        return posY;
     }
 
     public int getWidth() {
@@ -45,7 +45,7 @@ public class Sprite {
 
     Rectangle getRect()
     {
-      return new Rectangle(x, y, 
+      return new Rectangle(posX, posY, 
           image.getWidth(null), image.getHeight(null));
     }
 }
