@@ -1,10 +1,15 @@
-function Personaje()
+function Personaje(eq,principal)
 {
     this.largo      = 32;
     this.posX       = 600;
     this.posY       = Math.random()*612+this.largo;
     this.vel = 10;
     this.direccion = 1;
+	
+	
+	this.ID=1;
+	this.equipo=eq;
+	this.principal=principal;
 
     this.colicionPared = function()
     {

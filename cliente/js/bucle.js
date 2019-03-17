@@ -18,14 +18,38 @@ function bucle()
     }
     */
     
-    bola.moverse();
-    if(personaje.posY - personaje.largo/2 <=65 || personaje.posY + personaje.largo/2 >=725){personaje.direccion*=-1;}
+    //bola.moverse();
+	
+	
+	
+    /*
+	//Cambio Raul 16/03/19
+	if(personaje.posY - personaje.largo/2 <=65 || personaje.posY + personaje.largo/2 >=725){personaje.direccion*=-1;}
 
     personaje.moverse();
     
     personaje.Dibujar(contextoFondo,camara);
-    
-    bola.Dibujar(contextoFondo,camara);
+	//Fin Cambio Raul 16/03/19
+    */
+	//Cambio Raul 16/03/19
+	
+	CalcularMovBola();  //movimiento bola, aun no calcula angulos y demas, solo usa lo de la clase bola
+	
+	MoverPersonaje(); //movimeitno personaje propio
+	DibujarPersonajes(contextoFondo,camara);// dibuja todos los personajes
+	
+	DibujarBolas(contextoFondo,camara); // dibuja las 4 pelotas
+	
+	
+	//Fin Cambio Raul 16/03/19
+	
+	
+	
+    //bola.Dibujar(contextoFondo,camara);
+	
+	
+	
+	
     clearTimeout(temporizador);
     temporizador = setTimeout("bucle()", 30);
 }
