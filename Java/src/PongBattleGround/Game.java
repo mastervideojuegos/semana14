@@ -21,7 +21,8 @@ public class Game extends JPanel implements Config {
     Timer timer;
     String message = "Game Over";
     Pelota ball;
-    Paleta paddle, paddle2;
+    Personaje paddle;
+    Personaje paddle2;
     Recogible bricks[];
  
 
@@ -43,13 +44,14 @@ public class Game extends JPanel implements Config {
             super.addNotify();
             gameInit();
         }
+        
     //Funcion Inicio    
     public void gameInit() {
         ball = new Pelota();
-        paddle = new Paleta();
+        paddle = new Personaje();
         paddle.posX = 1000;
         paddle.posY = 400;
-        paddle2 = new Paleta();
+        paddle2 = new Personaje();
         paddle2.posX = 100;
         paddle2.posY = 400;
 
@@ -72,7 +74,7 @@ public class Game extends JPanel implements Config {
         Font font = new Font("Verdana", Font.BOLD, 130);
         FontMetrics metr = this.getFontMetrics(font);
         g.setFont(font);
-        g.drawString("0",
+        g.drawString(String.valueOf(paddle.puntos),
                     (Config.WIDTH - metr.stringWidth("1234")) / 2,
                      200);
         g.drawString("0",
@@ -96,7 +98,7 @@ public class Game extends JPanel implements Config {
 
             Font font2 = new Font("Verdana", Font.BOLD, 18);
             FontMetrics metr2 = this.getFontMetrics(font2);
-            
+            g.setColor(new Color(255,255,255));
             g.setFont(font2);
             g.drawString(message,
                          (Config.WIDTH - metr2.stringWidth(message)) / 2,
@@ -307,12 +309,10 @@ public class Game extends JPanel implements Config {
                 int ballWidth = (int)ball.getRect().getWidth();
                 int ballTop = (int)ball.getRect().getMinY();
 
-                Point pointRight =
-                    new Point(ballLeft + ballWidth + 1, ballTop);
+                Point pointRight =new Point(ballLeft + ballWidth + 1, ballTop);
                 Point pointLeft = new Point(ballLeft - 1, ballTop);
                 Point pointTop = new Point(ballLeft, ballTop - 1);
-                Point pointBottom =
-                    new Point(ballLeft, ballTop + ballHeight + 1);
+                Point pointBottom = new Point(ballLeft, ballTop + ballHeight + 1);
 
                 if (!bricks[i].isDestroyed()) {
                     if (bricks[i].getRect().contains(pointRight)) {
@@ -332,6 +332,7 @@ public class Game extends JPanel implements Config {
                     }
 
                     bricks[i].setDestroyed(true);
+                    paddle.puntos++;
                 }
             }
         }

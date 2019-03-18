@@ -7,8 +7,8 @@ public class Pelota extends Sprite implements Config {
 
    private int dirX;
    private int dirY;
-   private int velX;
-   private int velY;
+   float velocidad = 4;
+   int tamanio;
 
    protected String ball = "/img/pixar.png";
 
@@ -29,18 +29,18 @@ public class Pelota extends Sprite implements Config {
 
     public void move()
     {
-      posX += dirX;
-      posY += dirY;
+      posX += dirX * velocidad;
+      posY += dirY * velocidad;
 
-      if (posX == 0) {
+      if (posX <= 0) {
         setXDir(1);
       }
 
-      if (posX == BALL_RIGHT) {
+      if (posX >= BALL_RIGHT) {
         setXDir(-1);
       }
 
-      if (posY == 0) {
+      if (posY <= 0) {
         setYDir(1);
       }
       
