@@ -12,7 +12,7 @@ var mapa1 = false;
 var mapa2 = true;
 
 var jugadores= new Array();//Array para los 4 jugadores
-crearJugadores();
+//crearJugadores();
 
 
 var pelotas =new Array();//Array para las 4 pelotas

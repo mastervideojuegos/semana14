@@ -50,7 +50,7 @@ function finRecibirLogin(dato){
 		$( "#contenedorInicio" ).hide()
 		$( "#contenedorJuego" ).show()
 
-		//bucleespera();
+		bucleespera();
 		//lugar ajax
 		//bucleespera();//ya no lo vamos a llamar, ajaxRecogibles. pasar idusuario e idsala
 	}

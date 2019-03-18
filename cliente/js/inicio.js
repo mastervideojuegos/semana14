@@ -42,9 +42,9 @@ function inicio(){
 
 		//nos saltamos validaciones:
 
-		$( "#contenedorSala" ).hide();
+		/*$( "#contenedorSala" ).hide();
 		$( "#contenedorJuego" ).show();
-		bucle();
+		bucle();*/
 
 	});
 
