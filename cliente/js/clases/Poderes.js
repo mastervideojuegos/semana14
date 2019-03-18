@@ -16,6 +16,7 @@ var bCongelaJugador     = false;
         //SuperBola
         function SuperBola()
         {
+            return 2
             bola.tamanio = 32;
             console.log("SuperBola");
         }
@@ -47,7 +48,7 @@ var bCongelaJugador     = false;
         {
             //TODO
         }
-//---------------------------------------//   
+//---------------------------------------//
 
     // Jugador //
         //SuperJugador
@@ -81,9 +82,9 @@ var bCongelaJugador     = false;
         }
 //---------------------------------------//
 
-$(document).keydown(function(e) 
+$(document).keydown(function(e)
 {
-    switch (e.which) 
+    switch (e.which)
     {
         // 1 //
         case 49:

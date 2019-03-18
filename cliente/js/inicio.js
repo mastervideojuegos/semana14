@@ -6,7 +6,7 @@ function inicio(){
 	$(window).resize(function(){
 		reescalaVentana();
 	})
-	controles();
+	controles();// controles del jugador
 
 	$( "#idLogin" ).click(function() {
 		$("#inUsuario").val("")
