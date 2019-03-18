@@ -194,10 +194,11 @@ public class Game extends JPanel implements Config {
 
         public void run() {
 
-            ball.move();
+            ball.move2(paddle,paddle2);
             paddle.move();
             paddle2.move();
-            checkCollision();
+            ball.colisiones(paddle,paddle2, bricks);
+            //checkCollision();
             repaint();
 
         }
@@ -208,133 +209,9 @@ public class Game extends JPanel implements Config {
         timer.cancel();
     }
 
-    //Colisiones
-    public void checkCollision() {
+   
         
-        if (ball.getRect().getMaxY() > Config.BOTTOM) {
-            //stopGame();
-            ball.setYDir(-1 * ball.getYDir());
-        }
         
-        //Colision RECOGIBLES CONDICION DE GANAR
-        for (int i = 0, j = 0; i < 90; i++) {
-            if (bricks[i].isDestroyed()) {
-                j++;
-            }
-            if (j == 90) {
-                message = "Ganaste Webón!";
-                stopGame();
-            }
-        }
         
-        //COLISION RAQUETA1
-        if ((ball.getRect()).intersects(paddle.getRect())) {
-
-            int paddleLPos = (int)paddle.getRect().getMaxY();
-            int ballLPos = (int)ball.getRect().getMaxY();
-
-            int first = paddleLPos + 8;
-            int second = paddleLPos + 16;
-            int third = paddleLPos + 24;
-            int fourth = paddleLPos + 32;
-
-            if (ballLPos < first) {
-                ball.setXDir(-1);
-                ball.setYDir(-1);
-            }
-
-            if (ballLPos >= first && ballLPos < second) {
-                ball.setXDir(-1);
-                ball.setYDir(1 * ball.getYDir());
-            }
-
-            if (ballLPos >= second && ballLPos < third) {
-                ball.setXDir(-1);
-                ball.setYDir(-1);
-            }
-
-            if (ballLPos >= third && ballLPos < fourth) {
-                ball.setXDir(-1);
-                ball.setYDir(1 * ball.getYDir());
-            }
-
-            if (ballLPos > fourth) {
-                ball.setXDir(-1);
-                ball.setYDir(1);
-            }
-        }
-        //COLISION RAQUETA2
-        if ((ball.getRect()).intersects(paddle2.getRect())) {
-
-            int paddleLPos = (int)paddle2.getRect().getMaxY();
-            int ballLPos = (int)ball.getRect().getMaxY();
-
-            int first = paddleLPos + 8;
-            int second = paddleLPos + 16;
-            int third = paddleLPos + 24;
-            int fourth = paddleLPos + 32;
-
-            if (ballLPos < first) {
-                ball.setXDir(1);
-                ball.setYDir(-1);
-            }
-
-            if (ballLPos >= first && ballLPos < second) {
-                ball.setXDir(1);
-                ball.setYDir(1 * ball.getYDir());
-            }
-
-            if (ballLPos >= second && ballLPos < third) {
-                ball.setXDir(1);
-                ball.setYDir(-1);
-            }
-
-            if (ballLPos >= third && ballLPos < fourth) {
-                ball.setXDir(1);
-                ball.setYDir(1 * ball.getYDir());
-            }
-
-            if (ballLPos > fourth) {
-                ball.setXDir(1);
-                ball.setYDir(1);
-            }
-        }
-
-        //COLISION RECOGIBLES
-        for (int i = 0; i < 90; i++) {
-            if ((ball.getRect()).intersects(bricks[i].getRect())) {
-
-                int ballLeft = (int)ball.getRect().getMinX();
-                int ballHeight = (int)ball.getRect().getHeight();
-                int ballWidth = (int)ball.getRect().getWidth();
-                int ballTop = (int)ball.getRect().getMinY();
-
-                Point pointRight =new Point(ballLeft + ballWidth + 1, ballTop);
-                Point pointLeft = new Point(ballLeft - 1, ballTop);
-                Point pointTop = new Point(ballLeft, ballTop - 1);
-                Point pointBottom = new Point(ballLeft, ballTop + ballHeight + 1);
-
-                if (!bricks[i].isDestroyed()) {
-                    if (bricks[i].getRect().contains(pointRight)) {
-                        ball.setXDir(-1);
-                    }
-
-                    else if (bricks[i].getRect().contains(pointLeft)) {
-                        ball.setXDir(1);
-                    }
-
-                    if (bricks[i].getRect().contains(pointTop)) {
-                        ball.setYDir(1);
-                    }
-
-                    else if (bricks[i].getRect().contains(pointBottom)) {
-                        ball.setYDir(-1);
-                    }
-
-                    bricks[i].setDestroyed(true);
-                    paddle.puntos++;
-                }
-            }
-        }
-    }
+        
 }
