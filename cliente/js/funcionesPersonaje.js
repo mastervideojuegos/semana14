@@ -1,6 +1,6 @@
 
 
-function MoverPersonaje(){//aca muevo el personaje principal =0
+function moverPersonaje(){//aca muevo el personaje principal =0
 
 	for(let j=0;j<jugadores.length;j++){
 		//if(Jugadores[j].principal==0&& movimientoJugador==true){//entendi que esta es para el movimiento del personaje que uno controla
@@ -19,7 +19,7 @@ function MoverPersonaje(){//aca muevo el personaje principal =0
 }
 
 
-function DibujarPersonajes(ctx,camara){//aca dibujo todos los personajes
+function dibujarPersonajes(ctx,camara){//aca dibujo todos los personajes
 
 	for(let p=0;p<jugadores.length;p++){
 		jugadores[p].dibujar(contextoFondo,camara);
@@ -27,4 +27,19 @@ function DibujarPersonajes(ctx,camara){//aca dibujo todos los personajes
 	}
 
 
+}
+
+function crearJugadores(){
+	jugadores[0]=new Personaje('yo',1,0,0);
+	jugadores[1]=new Personaje('otro',1,1,1);
+	jugadores[2]=new Personaje('otro2',2,1,1);
+	jugadores[3]=new Personaje('otro3',2,1,1);
+	jugadores[1].posY=300;
+	jugadores[2].posX=50;
+	jugadores[2].posY=300;
+	jugadores[3].posX=50;
+
+	jugadores[1].direccion=1;
+	jugadores[2].direccion=1;
+	jugadores[3].direccion=1;
 }

@@ -12,18 +12,11 @@ var mapa1 = false;
 var mapa2 = true;
 
 var jugadores= new Array();//Array para los 4 jugadores
-jugadores[0]=new Personaje(1,0);
-jugadores[1]=new Personaje(1,1);
-jugadores[2]=new Personaje(2,1);
-jugadores[3]=new Personaje(2,1);
-jugadores[2].posX=50;
-jugadores[3].posX=50;
+crearJugadores();
+
 
 var pelotas =new Array();//Array para las 4 pelotas
-pelotas[0]=new Bola();
-pelotas[1]=new Bola();
-pelotas[2]=new Bola();
-pelotas[3]=new Bola();
+crearBolas();
 
 var movimientoJugador=false;
 

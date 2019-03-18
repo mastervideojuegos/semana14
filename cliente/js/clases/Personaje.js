@@ -1,10 +1,12 @@
-function Personaje(eq,principal)
+function Personaje(usr,eq,principal, primero)
 {
     this.largo      = 32;
-    this.posX       = 600;
-    this.posY       = Math.random()*612+this.largo;
+    this.posX       = 1250;
+    this.posY       = 50;
     this.vel = 10;
-    this.direccion = 1;
+    this.direccion = 0;
+    this.primero = primero;
+    this.usuario = usr;
 
 
 	this.ID=1;
@@ -34,6 +36,11 @@ function Personaje(eq,principal)
 
     this.dibujar = function(ctx,camara)
     {
-        ctx.drawImage(personajeActual, this.posX+camara.posX, this.posY+camara.posY-this.largo*0.5, this.largo*0.5, this.largo);
+        ctx.drawImage(personajeActual, this.posX+camara.posX-this.largo*0.25, this.posY+camara.posY-this.largo*0.5, this.largo*0.5, this.largo);
+        ctx.beginPath();
+        ctx.arc(this.posX+camara.posX, this.posY+camara.posY,3,0,(Math.PI/180)*360,true);
+        ctx.fillStyle = "red";
+        ctx.fill();
+        ctx.closePath();
     }
 }
