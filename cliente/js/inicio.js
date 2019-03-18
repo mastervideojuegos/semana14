@@ -39,11 +39,16 @@ function inicio(){
 		$( "#contenedorLogin" ).hide();
 		$( "#contenedorMenu" ).hide()
 		$( "#contenedorSala" ).show();
-		
-		
+
+		//nos saltamos validaciones:
+
+		$( "#contenedorSala" ).hide();
+		$( "#contenedorJuego" ).show();
+		bucle();
+
 	});
-	
-	
+
+
  //Boton Entrar SingIn
 	$( "#btnEntrarSignin" ).click(function() {
 		if(banBD){
@@ -63,13 +68,13 @@ function inicio(){
 		console.log("listo")
     	personaje[0].listo = 1;
 	});
-	
+
  //Boton cambiar equipo 1
 	$( "#btnCambiarEquipo1" ).click(function() {
 		console.log("1")
 		personaje[0].equipo = 1;
 	});
-	
+
 	//Boton cambiar equipo 2
 	$( "#btnCambiarEquipo2" ).click(function() {
 		console.log("2")

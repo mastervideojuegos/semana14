@@ -1,11 +1,10 @@
 
-function Personaje(usr,eq,principal, primero)
+function Personaje(usuario,eq,principal, primero,idUsr,idSala)
 {
 	//Variables BD
-	this.usuario = usuario;
+		this.usuario = usuario;
     this.id = parseInt(idUsr);
     this.idSala = parseInt(idSala);
-    this.equipo = 1;
     this.listo = 0;
     this.largo      = 32;
     this.posX       = 1250;
@@ -13,7 +12,7 @@ function Personaje(usr,eq,principal, primero)
     this.vel = 10;
 
     this.primero = primero;
-    this.usuario = usr;
+
 
 	this.ID=1;
 	this.equipo=eq;

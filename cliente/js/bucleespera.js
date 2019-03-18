@@ -2,14 +2,14 @@ function bucleespera(){
     JugadorEnSala();
 
     banConfirmacion= true;
-    
-    for(var i = 0; i<personaje.length;i++){
-        if(personaje[i].listo== 0){
-            banConfirmacion= false;        
+
+    for(var i = 0; i<jugadores.length;i++){
+        if(jugadores[i].listo== 0){
+            banConfirmacion= false;
         }
     }
     if(banConfirmacion){
-        
+
     	$( "#contenedorSala" ).hide()
     	$( "#contenedorInicio" ).hide()
 		$( "#contenedorMenu" ).hide()
