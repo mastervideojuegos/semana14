@@ -1,17 +1,24 @@
+
 function Personaje(usr,eq,principal, primero)
 {
+	//Variables BD
+	this.usuario = usuario;
+    this.id = parseInt(idUsr);
+    this.idSala = parseInt(idSala);
+    this.equipo = 1;
+    this.listo = 0;
     this.largo      = 32;
     this.posX       = 1250;
     this.posY       = 50;
     this.vel = 10;
-    this.direccion = 0;
+
     this.primero = primero;
     this.usuario = usr;
-
 
 	this.ID=1;
 	this.equipo=eq;
 	this.principal=principal;
+    this.direccion = 1;
 
     this.colicionPared = function()
     {

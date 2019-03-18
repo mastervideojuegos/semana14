@@ -31,13 +31,19 @@ function inicio(){
 
  //Boton Entrar LogIn
 	$( "#btnEntrarLogin" ).click(function() {
-		//if(banBD){
-			//enviarAjaxLogin($("#inUsuario").val(),$("#inContrasena").val());
-		//}
+		if(banBD){
+			usuario = $("#inUsuario").val();
+			var contrasena = $("#inContrasena").val();
+			enviarAjaxLogin(usuario,contrasena);
+		}
 		$( "#contenedorLogin" ).hide();
-		$( "#contenedorJuego" ).show();
-		bucle();
+		$( "#contenedorMenu" ).hide()
+		$( "#contenedorSala" ).show();
+		
+		
 	});
+	
+	
  //Boton Entrar SingIn
 	$( "#btnEntrarSignin" ).click(function() {
 		if(banBD){
@@ -50,5 +56,23 @@ function inicio(){
 		}
 	});
 
-
+ //Boton Listo
+	$( "#btnListo" ).click(function() {
+    	$( "#btnListo" ).attr("disabled", "disabled");
+		$( "#contenedorSala" ).hide();
+		console.log("listo")
+    	personaje[0].listo = 1;
+	});
+	
+ //Boton cambiar equipo 1
+	$( "#btnCambiarEquipo1" ).click(function() {
+		console.log("1")
+		personaje[0].equipo = 1;
+	});
+	
+	//Boton cambiar equipo 2
+	$( "#btnCambiarEquipo2" ).click(function() {
+		console.log("2")
+		personaje[0].equipo = 2;
+	});
 }

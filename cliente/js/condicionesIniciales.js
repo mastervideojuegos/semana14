@@ -23,8 +23,9 @@ var movimientoJugador=false;
 var temporizador;
 var bola = new Bola();
 
-var personaje = new Personaje(1,1);
 var camara  = new Camara();
 var mapa = new Mapa();
 
+var usuario = "";
+var banConfirmacion = false;
 var banBD = true;
