@@ -16,32 +16,32 @@ var bCongelaJugador     = false;
         //SuperBola
         function SuperBola()
         {
-            return 2
-            bola.tamanio = 32;
             console.log("SuperBola");
+            return 2;
         }
         //MiniBola
         function MiniBola()
         {
-            bola.tamanio = 8;
             console.log("MiniBola");
+            return 0.5;
         }
         //AceleraBola
         function AceleraBola()
         {
-            bola.velocidad = 1.5;
             console.log("AceleraBola");
+            return 1.5;
         }
         //DeceleraBola
         function DeceleraBola()
         {
-            bola.velocidad = 0.5;
             console.log("DeceleraBola");
+            return 0.5;
         }
         //MultiBola
         function MultiBola()
         {
-            //TODO
+            console.log("MultiBola");
+            return 4;
         }
         //TeleBola
         function TeleBola()
@@ -54,26 +54,26 @@ var bCongelaJugador     = false;
         //SuperJugador
         function SuperJugador()
         {
-            personaje.largo = 64;
             console.log("SuperJugador");
+            return 2;
         }
         //MiniJugador
         function MiniJugador()
         {
-            personaje.largo = 16;
             console.log("MiniJugador");
+            return 0.5;
         }
         //AceleraJugador
         function AceleraJugador()
         {
-            personaje.vel = 15;
             console.log("AceleraJugador");
+            return 1.5;
         }
         //DeceleraJugador
         function DeceleraJugador()
         {
-            personaje.vel = 5;
             console.log("DeceleraJugador");
+            return 0.5;
         }
         //CongelaJugador
         function CongelaJugador()
