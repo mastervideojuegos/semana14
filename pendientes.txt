@@ -1,32 +1,38 @@
 Personaje
 + añadir propiedad primero
+    al primero que entre a la sala se le pone un 0 al crear el jugador.
+    al resto se 1
 + movimiento del jugador
 + posicion del jugador
 
-Pelota
+Pelota - Jorge
 - Mejorar Colicion con todos
-- colicion que ajsute angulo
-- Segun recogible efecto
+- Colicion que ajsute angulo
+- Segun recogible efecto                          David
 - añadir propiedad ultimo que toco la pelota
 - ajustar contador de anotacion
 
-Recogibles
+Recogibles            David
 - añadir recogibles
 
 
--UI
-- Login
-- Sign In.
+UI
+- Login         JM
+- Sign In.      JM
 - Usuario podra elegir tipo de partida.
-- marcador
+- marcador      David
 
 Sala:
-- Usuarios en sala
-- Seleccion de equipo
-- Boton de inicio
+- Usuarios en sala      JM
+- Seleccion de equipo   JM
+- Boton de inicio       JM
 
 Multijugador
 - Crear personaje de Usuario
 - Cargar resto de personajes
 - Primero conectado controla la pelota.
 - PHP Sockets
+
+
+----------------
+Pendientes
