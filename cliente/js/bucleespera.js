@@ -1,5 +1,4 @@
 function bucleespera(){
-    console.log("Hola")
     JugadorEnSala();
 
     banConfirmacion= true;

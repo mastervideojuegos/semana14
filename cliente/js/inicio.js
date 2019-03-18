@@ -31,13 +31,19 @@ function inicio(){
 
  //Boton Entrar LogIn
 	$( "#btnEntrarLogin" ).click(function() {
-		//if(banBD){
-			//enviarAjaxLogin($("#inUsuario").val(),$("#inContrasena").val());
-		//}
+		if(banBD){
+			usuario = $("#inUsuario").val();
+			var contrasena = $("#inContrasena").val();
+			enviarAjaxLogin(usuario,contrasena);
+		}
 		$( "#contenedorLogin" ).hide();
+		$( "#contenedorMenu" ).hide()
 		$( "#contenedorSala" ).show();
-		bucleespera();
+		
+		
 	});
+	
+	
  //Boton Entrar SingIn
 	$( "#btnEntrarSignin" ).click(function() {
 		if(banBD){
@@ -56,4 +62,10 @@ function inicio(){
 		$( "#contenedorSala" ).hide();
     	personaje[0].listo = 1;
 	});
+	
+ //Boton cambiar equipo
+	$( "#btnCambiarEquipo" ).click(function() {
+	});
+	
+	
 }

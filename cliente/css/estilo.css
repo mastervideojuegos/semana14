@@ -93,17 +93,21 @@ body
 	top:0px;
 	left:0px;
     margin:0px;
-
+	display: none;
+	width:100%;
+	height:100%;
 }
 
-#btnListo{
-    font-size: 18px;
+#botonesEspera{
+    font-size: 20px;
     position: absolute;
 	
     text-align: center;
     border:3px solid black; 
-    left:25%;
-    top:60%;
+    top:50%;
+    left:50%;
+    margin-right: -50%;
+    transform: translate(-50%,-50%);
     
 }
 
@@ -116,8 +120,18 @@ body
 	color:yellow;
 }
 
-#contenedorLista{
+#contenedorLista1,
+#contenedorLista2{
+	position:absolute;
+	top:0%;
 	width:50%;
 	text-align:center;
-	
+}
+
+#contenedorLista1{
+	left:0%;
+}
+
+#contenedorLista2{
+	right:0%;
 }

@@ -1,4 +1,4 @@
-function Personaje()
+function Personaje(usuario,idUsr,idSala)
 {	
 	//Variables BD
 	this.usuario = usuario;

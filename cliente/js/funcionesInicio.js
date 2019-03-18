@@ -1,4 +1,3 @@
-
 //funcion que reescala la ventana que ve el usuario
 function reescalaVentana(){
 	//console.log("reescalar1")
@@ -37,27 +36,34 @@ function enviarAjaxLogin(usr,psw){
 }
 
 function finRecibirLogin(dato){
-	console.log("respuesta",dato)
+	console.log(dato)
 	if(dato[0]=="E"){
 		$("#msgLogin").text(dato)
 		$( "#btnListo" ).attr("disabled", "enable");
 	}else{
 		var datos = dato.split("|");
+		console.log(datos)
 		var idUsr = parseInt(datos[0]);
-		/*var idSala = parseInt(datos[1]);
+		var idSala = parseInt(datos[1]);
+		console.log(datos[0])
 		
-		player[0] = new Player(usuario, idUsr, idSala);
-
+		personaje[0] = new Personaje(usuario, idUsr, idSala);
 		actualizarLista(usuario);
-		*/
+		
 		$( "#contenedorInicio" ).hide()
 		$( "#contenedorJuego" ).show()
 		
-		bucle();
+		bucleespera();
 		//lugar ajax
 		//bucleespera();//ya no lo vamos a llamar, ajaxRecogibles. pasar idusuario e idsala	
 	}
 	banBD = true;
+
+}
+
+function actualizarLista(usr) {
+		var cadena = "<li class=\"list-group-item1 listaEspera\"><h3>"+usr+"</h3></li>";	
+		$( "#lgEspera1" ).append(cadena);
 
 }
 
@@ -104,8 +110,8 @@ function finRecibirSignin(dato){
 
 //Sala de espera
 function JugadorEnSala(){
-console.log(personaje[0].usuario);
-var textochat=""
+//console.log(personaje[0]);
+var textochat="";
 	if(banBD){
 		banBD = false;
 		$.ajax({
@@ -117,7 +123,7 @@ var textochat=""
 					+"&idUsr="+personaje[0].id
 					+"&posX="+personaje[0].posX
 					+"&posY="+personaje[0].posY
-					+"&listo="+personaje[0].listo
+					+"&listo="+personaje[0].listo,
 				//beforeSend:inicioEnvio,
 				success:actualizaExitoP
 				//timeout:4000,
@@ -127,8 +133,9 @@ var textochat=""
 	}
     
 }
+
 function actualizaExitoP(dato){
-console.log("fin sala de espera:"+dato)
+//console.log("fin sala de espera:"+dato)
 	
 	$( ".listaEspera" ).remove();
 	var banEncontrado = false;
@@ -143,9 +150,9 @@ console.log("fin sala de espera:"+dato)
 			
 			//barrido del jugador--> recogibles
 			for(var j =0;j<personaje.length;j++){
-				//console.log(player[j].nombre, fila[0])
+				//console.log(personaje[j].nombre, fila[0])
 				
-				//si el id de usuario cuadra con alguno player ya creado actualizamos
+				//si el id de usuario cuadra con alguno personaje ya creado actualizamos
 				if(personaje[j].id == parseInt(fila[2])){
 					personaje[j].listo = parseInt(fila[3]);
 					personaje[j].posX = parseFloat(fila[4]);
@@ -158,7 +165,7 @@ console.log("fin sala de espera:"+dato)
 			
 			//si no cuadro, creamos uno nuevo
 			if(!banEncontrado){
-				var tmpPlayer = new Personaje();
+				var tmpPlayer = new Personaje(fila[0],parseInt(fila[2]),parseInt(fila[1]));
 				tmpPlayer.listo = parseInt(fila[3]);
 				tmpPlayer.posX = parseFloat(fila[4]);
 				tmpPlayer.posY = parseFloat(fila[5]);
