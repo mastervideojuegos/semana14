@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-03-2019 a las 20:33:50
+-- Tiempo de generación: 18-03-2019 a las 20:39:25
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -51,8 +51,8 @@ INSERT INTO `salas` (`id`, `nombre`, `activo`, `numJugadores`) VALUES
 CREATE TABLE `salasusuarios` (
   `idSala` int(11) NOT NULL,
   `idUsuario` int(11) NOT NULL,
-  `posX` int(11) NOT NULL,
-  `posY` int(11) NOT NULL,
+  `posX` float NOT NULL,
+  `posY` float NOT NULL,
   `listo` int(11) NOT NULL,
   `utc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
