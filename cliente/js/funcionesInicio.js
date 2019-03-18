@@ -36,16 +36,13 @@ function enviarAjaxLogin(usr,psw){
 }
 
 function finRecibirLogin(dato){
-	console.log(dato)
 	if(dato[0]=="E"){
 		$("#msgLogin").text(dato)
 		$( "#btnListo" ).attr("disabled", "enable");
 	}else{
 		var datos = dato.split("|");
-		console.log(datos)
 		var idUsr = parseInt(datos[0]);
 		var idSala = parseInt(datos[1]);
-		console.log(datos[0])
 		
 		personaje[0] = new Personaje(usuario, idUsr, idSala);
 		actualizarLista(usuario);
@@ -62,9 +59,15 @@ function finRecibirLogin(dato){
 }
 
 function actualizarLista(usr) {
-		var cadena = "<li class=\"list-group-item1 listaEspera\"><h3>"+usr+"</h3></li>";	
-		$( "#lgEspera1" ).append(cadena);
-
+	if(personaje[0].usuario == usr){
+		if(personaje[0].equipo == 1){
+			var cadena = "<li class=\"list-group-item1 listaEspera\"><h3>"+usr+"</h3></li>";	
+			$( "#lgEspera1" ).append(cadena);
+		}else if(personaje[0].equipo == 2){
+			var cadena = "<li class=\"list-group-item2 listaEspera\"><h3>"+usr+"</h3></li>";	
+			$( "#lgEspera2" ).append(cadena);
+		}
+	}
 }
 
 
@@ -123,6 +126,7 @@ var textochat="";
 					+"&idUsr="+personaje[0].id
 					+"&posX="+personaje[0].posX
 					+"&posY="+personaje[0].posY
+					+"&sala=0"
 					+"&listo="+personaje[0].listo,
 				//beforeSend:inicioEnvio,
 				success:actualizaExitoP

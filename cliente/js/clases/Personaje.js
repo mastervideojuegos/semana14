@@ -4,7 +4,7 @@ function Personaje(usuario,idUsr,idSala)
 	this.usuario = usuario;
     this.id = parseInt(idUsr);
     this.idSala = parseInt(idSala);
-    
+    this.equipo = 1;
     this.listo = 0;
 	
 	
