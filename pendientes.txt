@@ -1,0 +1,32 @@
+Personaje
++ añadir propiedad primero
++ movimiento del jugador
++ posicion del jugador
+
+Pelota
+- Mejorar Colicion con todos
+- colicion que ajsute angulo
+- Segun recogible efecto
+- añadir propiedad ultimo que toco la pelota
+- ajustar contador de anotacion
+
+Recogibles
+- añadir recogibles
+
+
+-UI
+- Login
+- Sign In.
+- Usuario podra elegir tipo de partida.
+- marcador
+
+Sala:
+- Usuarios en sala
+- Seleccion de equipo
+- Boton de inicio
+
+Multijugador
+- Crear personaje de Usuario
+- Cargar resto de personajes
+- Primero conectado controla la pelota.
+- PHP Sockets

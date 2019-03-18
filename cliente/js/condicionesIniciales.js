@@ -11,13 +11,20 @@ var personajeActual = jugadores[1];
 var mapa1 = false;
 var mapa2 = true;
 
-var temporizador; 
+var jugadores= new Array();//Array para los 4 jugadores
+crearJugadores();
+
+
+var pelotas =new Array();//Array para las 4 pelotas
+crearBolas();
+
+var movimientoJugador=false;
+
+var temporizador;
 var bola = new Bola();
 
-var personaje = new Personaje();
+var personaje = new Personaje(1,1);
 var camara  = new Camara();
 var mapa = new Mapa();
 
 var banBD = true;
-
-
