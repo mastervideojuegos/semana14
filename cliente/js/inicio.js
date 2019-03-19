@@ -65,19 +65,16 @@ function inicio(){
 	$( "#btnListo" ).click(function() {
     	$( "#btnListo" ).attr("disabled", "disabled");
 		$( "#contenedorSala" ).hide();
-		console.log("listo")
-    	personaje[0].listo = 1;
+    	jugadores[0].listo = 1;
 	});
 
  //Boton cambiar equipo 1
 	$( "#btnCambiarEquipo1" ).click(function() {
-		console.log("1")
-		personaje[0].equipo = 1;
+		jugadores[0].equipo = 1;
 	});
 
 	//Boton cambiar equipo 2
 	$( "#btnCambiarEquipo2" ).click(function() {
-		console.log("2")
-		personaje[0].equipo = 2;
+		jugadores[0].equipo = 2;
 	});
 }

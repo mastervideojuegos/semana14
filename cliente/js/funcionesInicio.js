@@ -59,13 +59,16 @@ function finRecibirLogin(dato){
 }
 
 function actualizarLista(usr) {
-	if(jugadores[0].usuario == usr){
-		if(jugadores[0].equipo == 1){
-			var cadena = "<li class=\"list-group-item1 listaEspera\"><h3>"+usr+"</h3></li>";
-			$( "#lgEspera1" ).append(cadena);
-		}else if(jugadores[0].equipo == 2){
-			var cadena = "<li class=\"list-group-item2 listaEspera\"><h3>"+usr+"</h3></li>";
-			$( "#lgEspera2" ).append(cadena);
+	var i = 0;
+	for(i=0;i<jugadores.length;i++){
+		if(jugadores[i].usuario == usr){
+			if(jugadores[i].equipo == 1){
+				var cadena = "<li class=\"list-group-item1 listaEspera\"><h3>"+usr+"</h3></li>";
+				$( "#lgEspera1" ).append(cadena);
+			}else if(jugadores[i].equipo == 2){
+				var cadena = "<li class=\"list-group-item2 listaEspera\"><h3>"+usr+"</h3></li>";
+				$( "#lgEspera2" ).append(cadena);
+			}
 		}
 	}
 }
@@ -126,8 +129,8 @@ var textochat="";
 					+"&idUsr="+jugadores[0].id
 					+"&posX="+jugadores[0].posX
 					+"&posY="+jugadores[0].posY
-					+"&sala=0"
-					+"&listo="+jugadores[0].listo,
+					+"&listo="+jugadores[0].listo
+					+"&sala=0",
 				//beforeSend:inicioEnvio,
 				success:actualizaExitoP
 				//timeout:4000,
@@ -169,7 +172,7 @@ function actualizaExitoP(dato){
 
 			//si no cuadro, creamos uno nuevo
 			if(!banEncontrado){
-				var tmpPlayer = new Personaje(fila[0],parseInt(fila[2]),parseInt(fila[1]));
+				var tmpPlayer = new Personaje(fila[0],1,1,1,parseInt(fila[2]),parseInt(fila[1]));
 				tmpPlayer.listo = parseInt(fila[3]);
 				tmpPlayer.posX = parseFloat(fila[4]);
 				tmpPlayer.posY = parseFloat(fila[5]);

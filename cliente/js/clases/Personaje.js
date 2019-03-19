@@ -14,7 +14,6 @@ function Personaje(usuario,eq,principal, primero,idUsr,idSala)
     this.primero = primero;
 
 
-	this.ID=1;
 	this.equipo=eq;
 	this.principal=principal;
     this.direccion = 1;
