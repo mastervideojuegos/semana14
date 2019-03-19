@@ -2,6 +2,7 @@
 
 package PongBattleGround;
 
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
 
@@ -47,5 +48,9 @@ public class Sprite {
     {
       return new Rectangle(posX, posY, 
           image.getWidth(null), image.getHeight(null));
+    }
+
+    void paint(Graphics g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

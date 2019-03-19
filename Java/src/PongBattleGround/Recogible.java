@@ -1,5 +1,6 @@
 package PongBattleGround;
 
+import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
 public class Recogible extends Sprite {
@@ -20,7 +21,9 @@ public class Recogible extends Sprite {
 
       destroyed = false;
     }
-
+    public void pintar(Graphics g) {
+            g.drawImage(getImage(), getX(), getY(),getWidth(), getHeight(), null);    
+    }
     public boolean isDestroyed()
     {
       return destroyed;

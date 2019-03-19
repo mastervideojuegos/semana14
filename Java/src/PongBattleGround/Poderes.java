@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package PongBattleGround;
 
 import java.awt.event.KeyEvent;
@@ -67,25 +63,25 @@ public class Poderes extends Game {
         //SuperJugador
         public void SuperJugador()
         {
-            paddle.largo = 64;
+            personaje.largo = 64;
             System.out.println("SuperJugador");
         }
         //MiniJugador
         public void MiniJugador()
         {
-            paddle.largo = 16;
+            personaje.largo = 16;
             System.out.println("MiniJugador");
         }
         //AceleraJugador
         public void AceleraJugador()
         {
-            paddle.vel = 15;
+            personaje.vel = 15;
             System.out.println("AceleraJugador");
         }
         //DeceleraJugador
         public void DeceleraJugador()
         {
-            paddle.vel = 5;
+            personaje.vel = 5;
             System.out.println("DeceleraJugador");
         }
         //CongelaJugador
