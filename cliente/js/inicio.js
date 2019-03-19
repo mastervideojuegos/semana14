@@ -45,7 +45,7 @@ function inicio(){
 		$( "#contenedorSala" ).hide();
 		$( "#contenedorJuego" ).show();
 		bucle();
-
+		
 	});
 
 

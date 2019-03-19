@@ -1,6 +1,5 @@
 function bucle()
 {
-  console.log("bucle");
     contextoFondo.clearRect(0, 0, camara.anchuraPantalla, camara.alturaPantalla);
     mapa.DibujarEscenario(contextoFondo,camara);
 
@@ -37,6 +36,18 @@ function bucle()
 	calcularMovBola();  //movimiento bola, aun no calcula angulos y demas, solo usa lo de la clase bola
 
 	moverPersonaje(); //movimeitno personaje propio
+
+  poderes.contadorPoderes++;
+
+  if(poderes.contadorPoderes >= 50 && poderes.contadorPoderes <= 100)
+  {
+    poderes.Dibujar(contextoFondo, camara);
+  }
+  if(poderes.contadorPoderes == 101)
+  {
+    poderes.ValoresRandom();
+  }
+
 	dibujarPersonajes(contextoFondo,camara);// dibuja todos los personajes
 
 	dibujarBolas(contextoFondo,camara); // dibuja las 4 pelotas
@@ -44,13 +55,8 @@ function bucle()
 
 	//Fin Cambio Raul 16/03/19
 
+  //bola.Dibujar(contextoFondo,camara);
 
-
-    //bola.Dibujar(contextoFondo,camara);
-
-
-
-
-    clearTimeout(temporizador);
-    temporizador = setTimeout("bucle()", 60);
+  clearTimeout(temporizador);
+  temporizador = setTimeout("bucle()", 60);
 }

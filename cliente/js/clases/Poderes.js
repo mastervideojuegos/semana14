@@ -1,15 +1,5 @@
 // Power Ups //
 
-var bSuperBola          = false;
-var bMiniBola           = false;
-var bAceleraBola        = false;
-var bDeceleraBola       = false;
-var bMultiBola          = false;
-var bTeleBola           = false;
-var bSuperJugador       = false;
-var bMiniJugador        = false;
-var bAceleraJugador     = false;
-var bDeceleraJugador    = false;
 var bCongelaJugador     = false;
 
     // Bola //
@@ -78,49 +68,30 @@ var bCongelaJugador     = false;
         //CongelaJugador
         function CongelaJugador()
         {
-            bCongelaJugador = !bCongelaJugador;
+            console.log("CongelaJugador");
+            return true;
         }
 //---------------------------------------//
 
-$(document).keydown(function(e)
+function PowerUps(img)
 {
-    switch (e.which)
-    {
-        // 1 //
-        case 49:
-            SuperBola();
-            break;
-        // 2 //
-        case 50:
-            MiniBola();
-            break;
-        // 3 //
-        case 51:
-            AceleraBola();
-            break;
-        // 4 //
-        case 52:
-            DeceleraBola();
-            break;
-        // 5 //
-        case 53:
-            SuperJugador();
-            break;
-        // 6 //
-        case 54:
-            MiniJugador();
-            break;
-        // 7 //
-        case 55:
-            AceleraJugador();
-            break;
-        // 8 //
-        case 56:
-            DeceleraJugador();
-            break;
-        // 9 //
-        case 57:
-            CongelaJugador();
-            break;
-    }
-});
+  this.posX = 100 + Math.random()*900;
+  this.posY = 100 + Math.random()*900;
+  this.contadorPoderes = 0;
+  this.randomIndex     = Math.floor(Math.random()*5.9);
+  this.poderActual     = imgpoderes[this.randomIndex];
+
+  this.Dibujar = function(ctx, cam)
+  {
+    ctx.drawImage(this.poderActual, this.posX+cam.posX, this.posY+cam.posY);
+  }
+
+  this.ValoresRandom = function()
+  {
+    this.posX             = 200 + Math.random()*900;
+    this.posY             = 100 + Math.random()*400;
+    this.randomIndex      = Math.floor(Math.random()*5.9);
+    this.poderActual      = imgpoderes[this.randomIndex];
+    this.contadorPoderes  = 0;
+  }
+}

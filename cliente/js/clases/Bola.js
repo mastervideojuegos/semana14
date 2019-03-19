@@ -1,7 +1,7 @@
 function Bola()
 {
   this.tamanio    = 8;
-  this.tamanioOriginal = this.tamanio;
+  this.tamanioOriginal = 8;
 
   this.posX       = Math.random()*512;
   this.posY       = Math.random()*512 ;

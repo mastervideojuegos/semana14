@@ -21,6 +21,7 @@ crearBolas();
 var movimientoJugador=false;
 
 var temporizador;
+var tmpPoderes = null;
 var bola = new Bola();
 
 var camara  = new Camara();
@@ -29,3 +30,4 @@ var mapa = new Mapa();
 var usuario = "";
 var banConfirmacion = false;
 var banBD = true;
+var poderes = new PowerUps();
