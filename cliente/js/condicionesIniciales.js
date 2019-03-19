@@ -8,6 +8,10 @@ var mapaActual      = escenarios[0];
 var bolaActual      = bolas[0];
 var personajeActual = jugadores[1];
 
+var camara  = new Camara();
+var mapa = new Mapa();
+
+
 var mapa1 = false;
 var mapa2 = true;
 
@@ -16,16 +20,11 @@ crearJugadores();
 
 
 var pelotas =new Array();//Array para las 4 pelotas
-crearBolas();
+crearBolas(mapa);
 
 var movimientoJugador=false;
-
+  
 var temporizador;
-var bola = new Bola();
-
-var camara  = new Camara();
-var mapa = new Mapa();
-
 var usuario = "";
 var banConfirmacion = false;
 var banBD = true;

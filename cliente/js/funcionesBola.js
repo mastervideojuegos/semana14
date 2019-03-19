@@ -1,6 +1,6 @@
-function calcularMovBola(){
+function calcularMovBola(mapa,listaJugadores){
 		for(var i=0;i<pelotas.length;i++){
-      pelotas[i].moverse();
+      pelotas[i].moverse(mapa,listaJugadores);
 		}
   }
 
@@ -10,9 +10,9 @@ function dibujarBolas(ctx,camara){
 	}
 }
 
-function crearBolas(){
-	pelotas[0]=new Bola();
-	pelotas[1]=new Bola();
-	pelotas[2]=new Bola();
-	pelotas[3]=new Bola();
+function crearBolas(mapa){
+	pelotas[0]=new Bola(mapa);
+	pelotas[1]=new Bola(mapa);
+	pelotas[2]=new Bola(mapa);
+	pelotas[3]=new Bola(mapa);
 }
