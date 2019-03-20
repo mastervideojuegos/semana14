@@ -4,6 +4,15 @@ body
 	padding:0px;
 	background-color:black;
 }
+
+@font-face
+{
+  font-family: 'pixeledregular';
+  src: url('fonts/pixeled-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #lienzoFondo
 {
 	position: absolute;
@@ -12,6 +21,16 @@ body
 	margin:0px;
 	padding:0px;
 	z-index: 1;
+}
+
+#ui
+{
+	position: absolute;
+	top:0;
+	left:0px;
+	margin:0px;
+	padding:0px;
+	z-index: 2;
 }
 
 #contenedorInicio{
