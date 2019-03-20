@@ -1,16 +1,16 @@
 
 
-function moverPersonaje(){//aca muevo el personaje principal =0
+function moverPersonaje(mapa){//aca muevo el personaje principal =0
 
 	for(let j=0;j<jugadores.length;j++){
 		//if(Jugadores[j].principal==0&& movimientoJugador==true){//entendi que esta es para el movimiento del personaje que uno controla
-			jugadores[j].moverse();
+			jugadores[j].moverse(mapa);
 			if(j>0){
-				if(jugadores[j].posY - jugadores[j].largo/2 <=65 || jugadores[j].posY + jugadores[j].largo/2 >=725){
+				if(jugadores[j].posY - jugadores[j].ladoLargo <=0 || jugadores[j].posY + jugadores[j].ladoLargo >=mapa.ancho){
 					jugadores[j].direccion*=-1;
 				}
 				jugadores[j].posY += jugadores[j].vel*jugadores[j].direccion;
-				jugadores[j].colicionPared();
+				jugadores[j].colicionPared(mapa);
 
 
 		}
