@@ -31,21 +31,23 @@ function inicio(){
 
  //Boton Entrar LogIn
 	$( "#btnEntrarLogin" ).click(function() {
-		if(banBD){
-			usuario = $("#inUsuario").val();
-			var contrasena = $("#inContrasena").val();
-			enviarAjaxLogin(usuario,contrasena);
+		if(online){
+			if(banBD){
+				usuario = $("#inUsuario").val();
+				var contrasena = $("#inContrasena").val();
+				enviarAjaxLogin(usuario,contrasena);
+			}
+			$( "#contenedorLogin" ).hide();
+			$( "#contenedorMenu" ).hide()
+			$( "#contenedorSala" ).show();
+		}else{
+			//nos saltamos validaciones:
+
+			$( "#contenedorSala" ).hide();
+			$( "#contenedorJuego" ).show();
+			crearJugadores();
+			bucle();
 		}
-		$( "#contenedorLogin" ).hide();
-		$( "#contenedorMenu" ).hide()
-		$( "#contenedorSala" ).show();
-
-		//nos saltamos validaciones:
-
-		/*$( "#contenedorSala" ).hide();
-		$( "#contenedorJuego" ).show();
-		bucle();*/
-
 	});
 
 

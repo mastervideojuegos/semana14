@@ -29,3 +29,4 @@ var mapa = new Mapa();
 var usuario = "";
 var banConfirmacion = false;
 var banBD = true;
+var online = false;
