@@ -1,7 +1,7 @@
 <?php
 
     // Creo una conexion a una base de datos
-    $mysqli = new mysqli("localhost", "pong", "pong", "pong");
+    $mysqli = new mysqli("localhost", "root", "", "pong");
   
     //obtenemos variables POST
     $idSala = $_POST['idSala'];
@@ -9,6 +9,7 @@
     $posX = $_POST['posX'];
     $posY = $_POST['posY'];
     $listo = $_POST['listo'];
+	$equipo = $_POST['equipo'];
     $sala = $_POST['sala'];
     
     //cerramos sala
@@ -22,6 +23,7 @@
     //actualizamos salasUsuarios con las posiciones iniciales del juego  
      $cadena = "UPDATE salasUsuarios SET posX = ".$posX.",
             posY =".$posY.",
+			equipo =".$equipo.",
             listo =".$listo.",
             utc =".date('U')." WHERE 
             idSala =".$idSala." and
@@ -48,7 +50,8 @@
                     ."|".$fila['idUsuario']
                     ."|".$fila['listo']
                     ."|".$fila['posX']
-                    ."|".$fila['posY'];
+                    ."|".$fila['posY']
+					."|".$fila['equipo'];
                     
         if($inicio){$inicio = false; $carSep = ";";}    
     }

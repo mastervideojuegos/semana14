@@ -43,14 +43,13 @@ function finRecibirLogin(dato){
 		var datos = dato.split("|");
 		var idUsr = parseInt(datos[0]);
 		var idSala = parseInt(datos[1]);
-
 		jugadores[0] = new Personaje(usuario,1,0,0, idUsr, idSala);
 		actualizarLista(usuario);
 
 		$( "#contenedorInicio" ).hide()
 		$( "#contenedorJuego" ).show()
 
-		bucleespera();
+		//bucleespera();
 		//lugar ajax
 		//bucleespera();//ya no lo vamos a llamar, ajaxRecogibles. pasar idusuario e idsala
 	}
@@ -130,6 +129,7 @@ var textochat="";
 					+"&posX="+jugadores[0].posX
 					+"&posY="+jugadores[0].posY
 					+"&listo="+jugadores[0].listo
+					+"&equipo="+jugadores[0].equipo
 					+"&sala=0",
 				//beforeSend:inicioEnvio,
 				success:actualizaExitoP
@@ -164,6 +164,7 @@ function actualizaExitoP(dato){
 					jugadores[j].listo = parseInt(fila[3]);
 					jugadores[j].posX = parseFloat(fila[4]);
 					jugadores[j].posY = parseFloat(fila[5]);
+					jugadores[j].equipo = parseInt(fila[6]);
 
 					banEncontrado=true;
 					break;
@@ -172,10 +173,15 @@ function actualizaExitoP(dato){
 
 			//si no cuadro, creamos uno nuevo
 			if(!banEncontrado){
-				var tmpPlayer = new Personaje(fila[0],1,1,1,parseInt(fila[2]),parseInt(fila[1]));
+				var equipo = 1;
+				if(jugadoresActuales1 >= jugadoresEquipo1){
+					equipo = 2
+				}
+				var tmpPlayer = new Personaje(fila[0],equipo,1,1,parseInt(fila[2]),parseInt(fila[1]));
 				tmpPlayer.listo = parseInt(fila[3]);
 				tmpPlayer.posX = parseFloat(fila[4]);
 				tmpPlayer.posY = parseFloat(fila[5]);
+				tmpPlayer.equipo = parseInt(fila[6]);
 				jugadores.push(tmpPlayer);
 			}
 		}
@@ -184,3 +190,4 @@ function actualizaExitoP(dato){
 
 	banBD = true;
 }
+

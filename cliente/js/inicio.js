@@ -39,7 +39,7 @@ function inicio(){
 			}
 			$( "#contenedorLogin" ).hide();
 			$( "#contenedorMenu" ).hide()
-			$( "#contenedorSala" ).show();
+			$( "#contenedorModalidades" ).show();
 		}else{
 			//nos saltamos validaciones:
 
@@ -75,8 +75,39 @@ function inicio(){
 		jugadores[0].equipo = 1;
 	});
 
-	//Boton cambiar equipo 2
+//Boton cambiar equipo 2
 	$( "#btnCambiarEquipo2" ).click(function() {
 		jugadores[0].equipo = 2;
+	});
+	
+//Boton Siguiente
+	$( "#btnSiguiente" ).click(function() {
+		$( "#contenedorModalidades" ).hide();
+		$( "#contenedorSala" ).show();
+		bucleespera();
+	});
+	
+//Boton 1vs1
+	$( "#1vs1" ).click(function() {
+		jugadoresEquipo1 = 1;
+		jugadoresEquipo2 = 1;
+	});
+	
+//Boton 1vs2
+	$( "#1vs2" ).click(function() {
+		jugadoresEquipo1 = 1;
+		jugadoresEquipo2 = 2;
+	});
+	
+//Boton 1vs3
+	$( "#1vs3" ).click(function() {
+		jugadoresEquipo1 = 1;
+		jugadoresEquipo2 = 3;
+	});
+	
+//Boton 2vs2
+	$( "#2vs2" ).click(function() {
+		jugadoresEquipo1 = 2;
+		jugadoresEquipo2 = 2;
 	});
 }
