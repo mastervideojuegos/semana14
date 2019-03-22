@@ -1,6 +1,8 @@
 // Power Ups //
-
+var bPoderVisible       = false;
+var contadorPoderes     = 0;
 var bCongelaJugador     = false;
+var poderUtilizado      = 0;
 
     // Bola //
         //SuperBola
@@ -73,25 +75,46 @@ var bCongelaJugador     = false;
         }
 //---------------------------------------//
 
-function PowerUps(img)
+function PowerUps()
 {
-  this.posX = 100 + Math.random()*900;
-  this.posY = 100 + Math.random()*900;
-  this.contadorPoderes = 0;
-  this.randomIndex     = Math.floor(Math.random()*5.9);
-  this.poderActual     = imgpoderes[this.randomIndex];
+  this.radio            = 16;
+  this.posX             = 0;
+  this.posY             = 0;
+  this.centroX          = 0;
+  this.centroY          = 0;
+  this.indexPoder       = 0;
+  this.poderActual      = null;
 
-  this.Dibujar = function(ctx, cam)
+  this.valoresRandom = function()
+  {
+    this.posX             = 200 + Math.random()*900;
+    this.posY             = 200 + Math.random()*400;
+    this.centroX          = this.posX+this.radio+camara.posX;
+    this.centroY          = this.posY+this.radio+camara.posY;
+    this.indexPoder       = Math.floor(Math.random()*5.9);
+    this.poderActual      = imgpoderes[this.indexPoder];
+    poderUtilizado        = this.indexPoder;
+  }
+
+  this.dibujar = function(ctx, cam)
   {
     ctx.drawImage(this.poderActual, this.posX+cam.posX, this.posY+cam.posY);
   }
 
-  this.ValoresRandom = function()
+  this.buclePoderes = function()
   {
-    this.posX             = 200 + Math.random()*900;
-    this.posY             = 100 + Math.random()*400;
-    this.randomIndex      = Math.floor(Math.random()*5.9);
-    this.poderActual      = imgpoderes[this.randomIndex];
-    this.contadorPoderes  = 0;
+    if(contadorPoderes == 50)
+    {
+        bPoderVisible = true;
+        this.valoresRandom();
+    }
+    if(contadorPoderes > 50 && contadorPoderes <= 100 && bPoderVisible)
+    {
+        this.dibujar(contextoFondo, camara);
+    }
+    if (contadorPoderes > 100)
+    {
+        contadorPoderes = 0;
+    }
   }
 }

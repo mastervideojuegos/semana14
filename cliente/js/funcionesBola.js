@@ -4,8 +4,10 @@ function calcularMovBola(mapa,listaJugadores){
 		}
   }
 
-function dibujarBolas(ctx,camara){
-	for(var i=0;i<pelotas.length;i++){
+function dibujarBolas(ctx,camara)
+{
+	for(var i=0;i<pelotas.length;i++)
+	{
 		pelotas[i].dibujar(contextoFondo,camara);
 	}
 }
