@@ -12,8 +12,6 @@ function bucle(){
 
   contadorPoderes++;
   poderes.buclePoderes();
-  console.log(poderUtilizado);
-
 
   clearTimeout(temporizador);
   temporizador = setTimeout("bucle()", 60);
