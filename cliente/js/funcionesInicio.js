@@ -43,7 +43,6 @@ function finRecibirLogin(dato){
 		var datos = dato.split("|");
 		var idUsr = parseInt(datos[0]);
 		var idSala = parseInt(datos[1]);
-
 		jugadores[0] = new Personaje(usuario,1,0,0, idUsr, idSala);
 		actualizarLista(usuario);
 
@@ -59,13 +58,16 @@ function finRecibirLogin(dato){
 }
 
 function actualizarLista(usr) {
-	if(jugadores[0].usuario == usr){
-		if(jugadores[0].equipo == 1){
-			var cadena = "<li class=\"list-group-item1 listaEspera\"><h3>"+usr+"</h3></li>";
-			$( "#lgEspera1" ).append(cadena);
-		}else if(jugadores[0].equipo == 2){
-			var cadena = "<li class=\"list-group-item2 listaEspera\"><h3>"+usr+"</h3></li>";
-			$( "#lgEspera2" ).append(cadena);
+	var i = 0;
+	for(i=0;i<jugadores.length;i++){
+		if(jugadores[i].usuario == usr){
+			if(jugadores[i].equipo == 1){
+				var cadena = "<li class=\"list-group-item1 listaEspera\"><h3>"+usr+"</h3></li>";
+				$( "#lgEspera1" ).append(cadena);
+			}else if(jugadores[i].equipo == 2){
+				var cadena = "<li class=\"list-group-item2 listaEspera\"><h3>"+usr+"</h3></li>";
+				$( "#lgEspera2" ).append(cadena);
+			}
 		}
 	}
 }
@@ -126,8 +128,9 @@ var textochat="";
 					+"&idUsr="+jugadores[0].id
 					+"&posX="+jugadores[0].posX
 					+"&posY="+jugadores[0].posY
-					+"&sala=0"
-					+"&listo="+jugadores[0].listo,
+					+"&listo="+jugadores[0].listo
+					+"&equipo="+jugadores[0].equipo
+					+"&sala=0",
 				//beforeSend:inicioEnvio,
 				success:actualizaExitoP
 				//timeout:4000,
@@ -161,6 +164,7 @@ function actualizaExitoP(dato){
 					jugadores[j].listo = parseInt(fila[3]);
 					jugadores[j].posX = parseFloat(fila[4]);
 					jugadores[j].posY = parseFloat(fila[5]);
+					jugadores[j].equipo = parseInt(fila[6]);
 
 					banEncontrado=true;
 					break;
@@ -169,10 +173,15 @@ function actualizaExitoP(dato){
 
 			//si no cuadro, creamos uno nuevo
 			if(!banEncontrado){
-				var tmpPlayer = new Personaje(fila[0],parseInt(fila[2]),parseInt(fila[1]));
+				var equipo = 1;
+				if(jugadoresActuales1 >= jugadoresEquipo1){
+					equipo = 2
+				}
+				var tmpPlayer = new Personaje(fila[0],equipo,1,1,parseInt(fila[2]),parseInt(fila[1]));
 				tmpPlayer.listo = parseInt(fila[3]);
 				tmpPlayer.posX = parseFloat(fila[4]);
 				tmpPlayer.posY = parseFloat(fila[5]);
+				tmpPlayer.equipo = parseInt(fila[6]);
 				jugadores.push(tmpPlayer);
 			}
 		}
@@ -181,3 +190,4 @@ function actualizaExitoP(dato){
 
 	banBD = true;
 }
+

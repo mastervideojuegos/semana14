@@ -1,6 +1,6 @@
 <?php
     $sqlHost = "localhost";
-    $sqlUsuario = "pong";
-    $sqlContrasena = "pong";
+    $sqlUsuario = "root";
+    $sqlContrasena = "";
     $sqlBaseDatos = "pong";
 ?>

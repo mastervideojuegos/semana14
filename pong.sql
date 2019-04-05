@@ -18,15 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Base de datos: `pong`
---
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `salas`
---
 
 CREATE TABLE `salas` (
   `id` int(11) NOT NULL,

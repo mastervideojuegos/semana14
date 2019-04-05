@@ -19,7 +19,7 @@ var mapa1 = false;
 var mapa2 = true;
 
 var jugadores= new Array();//Array para los 4 jugadores
-crearJugadores();
+//crearJugadores();
 
 
 var pelotas =new Array();//Array para las 4 pelotas
@@ -32,3 +32,9 @@ var usuario = "";
 var banConfirmacion = false;
 var banBD = true;
 var poderes = new PowerUps();
+var online = true;
+
+var jugadoresEquipo1 = 1;
+var jugadoresEquipo2 = 1;
+var jugadoresActuales1 = 0;
+var jugadoresActuales2 = 0;
