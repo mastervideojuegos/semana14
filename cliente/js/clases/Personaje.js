@@ -16,20 +16,20 @@ function Personaje(usuario,eq,principal, primero,idUsr,idSala)
   this.direccion = 1;
 
 	//Dimecniones de Barra
-	this.largo      = 32;
-	this.ladoLargo	= this.largo * 0.5;
-	this.largoMax 	= this.largo;
+	this.alto      = 32;
+	this.ladoAlto	= this.alto * 0.5;
+	this.altoMax 	= this.alto;
 
-	this.ancho 			= this.largo * 0.5;
+	this.ancho 			= this.alto * 0.5;
 	this.ladoAncho	= this.ancho * 0.5;
 	this.anchoMax 	= this.ancho;
 
 	this.colicionPared = function(mapa){
-		if(this.posY + this.ladoLargo > mapa.ancho){
-			this.posY = mapa.ancho - this.ladoLargo;
+		if(this.posY + this.ladoAlto > mapa.ancho){
+			this.posY = mapa.ancho - this.ladoAlto;
 		}
-		else if(this.posY - this.largo/2 <0){
-			this.posY = this.ladoLargo;
+		else if(this.posY - this.alto/2 <0){
+			this.posY = this.ladoAlto;
 		}
 	}
 
@@ -42,7 +42,7 @@ function Personaje(usuario,eq,principal, primero,idUsr,idSala)
 
     this.dibujar = function(ctx,camara)
     {
-        ctx.drawImage(personajeActual, this.posX+camara.posX-this.ladoAncho, this.posY+camara.posY-this.ladoLargo, this.ancho, this.largo);
+        ctx.drawImage(personajeActual, this.posX+camara.posX-this.ladoAncho, this.posY+camara.posY-this.ladoAlto, this.ancho, this.alto);
         ctx.beginPath();
         ctx.arc(this.posX+camara.posX, this.posY+camara.posY,3,0,(Math.PI/180)*360,true);
         ctx.fillStyle = "red";
