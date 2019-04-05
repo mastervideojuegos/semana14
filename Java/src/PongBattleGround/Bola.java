@@ -1,58 +1,41 @@
 package PongBattleGround;
 
+import java.awt.Graphics;
 import java.awt.Point;
 import javax.swing.ImageIcon;
 
 
-public class Pelota extends Sprite implements Config {
+public class Bola extends Sprite implements Config {
 
    private int dirX;
    private int dirY;
-   float velocidad = 4;
-   int tamanio;
    
-   //Game game = new Game();
+   int tamanio = 8;
+   float velocidad  = 1;
+   int avanceX    = 5;
+   int avanceY    = 5;
 
+   protected String imgBall = "/img/pixar2.png";
 
-   protected String ball = "/img/pixar2.png";
-
-   public Pelota() {
-
+   public Bola() {
      dirX = 1;
      dirY = -1;
 
-     ImageIcon imgPelota = new ImageIcon(this.getClass().getResource(ball));
+     ImageIcon imgPelota = new ImageIcon(this.getClass().getResource(imgBall));
      image = imgPelota.getImage();
 
      width = image.getWidth(null);
      heigth = image.getHeight(null);
 
-     resetState();
+     pelotaRandom();
     }
-
-
-    public void move()
-    {
-      posX += dirX * velocidad;
-      posY += dirY * velocidad;
-
-      if (posX <= 0) {
-        setXDir(1);
-      }
-
-      if (posX >= BALL_RIGHT) {
-        setXDir(-1);
-      }
-
-      if (posY <= 0) {
-        setYDir(1);
-      }
-      
+   
+    public void pintar(Graphics g) {
+            g.drawImage(getImage(), getX(), getY(),getWidth(), getHeight(), null);    
     }
     
-    public void move2(Personaje paddle,Personaje paddle2)
+    public void mover(Personaje personaje,Personaje personaje2)
     {
-      System.out.println(paddle.posX);
       posX += dirX * velocidad;
       posY += dirY * velocidad;
 
@@ -70,10 +53,10 @@ public class Pelota extends Sprite implements Config {
       
     }
     //PUNTO INICIAL PELOTA
-    public void resetState() 
+    public void pelotaRandom() 
     {
-      posX = 230;
-      posY = 355;
+      posX = (int) (Math.random()*512);
+      posY = (int) (Math.random()*512);
     }
 
     public void setXDir(int posX)
@@ -97,12 +80,17 @@ public class Pelota extends Sprite implements Config {
     
     //Colisiones
     
-    public void colisiones(Personaje paddle,Personaje paddle2, Recogible bricks[]) {
-        
+    public void colisionPared(){
         if (getRect().getMaxY() > Config.BOTTOM) {
             //stopGame();
             setYDir(-1 * getYDir());
         }
+    }
+    
+    
+    public void colisiones(Personaje personaje,Personaje personaje2, Recogible bricks[]) {
+        colisionPared();
+        
         //Colision RECOGIBLES CONDICION DE GANAR
         for (int i = 0, j = 0; i < 90; i++) {
             if (bricks[i].isDestroyed()) {
@@ -115,15 +103,15 @@ public class Pelota extends Sprite implements Config {
         }
         
         //COLISION RAQUETA1
-        if ((getRect()).intersects(paddle.getRect())) {
+        if ((getRect()).intersects(personaje.getRect())) {
 
-            int paddleLPos = (int)paddle.getRect().getMaxY();
+            int personajeLPos = (int)personaje.getRect().getMaxY();
             int ballLPos = (int)getRect().getMaxY();
 
-            int first = paddleLPos + 8;
-            int second = paddleLPos + 16;
-            int third = paddleLPos + 24;
-            int fourth = paddleLPos + 32;
+            int first = personajeLPos + 8;
+            int second = personajeLPos + 16;
+            int third = personajeLPos + 24;
+            int fourth = personajeLPos + 32;
 
             if (ballLPos < first) {
                 setXDir(-1 * getXDir());
@@ -152,15 +140,15 @@ public class Pelota extends Sprite implements Config {
         }
         
         //COLISION RAQUETA2
-        if ((getRect()).intersects(paddle2.getRect())) {
+        if ((getRect()).intersects(personaje2.getRect())) {
 
-            int paddleLPos2 = (int)paddle2.getRect().getMaxY();
+            int personajeLPos2 = (int)personaje2.getRect().getMaxY();
             int ballLPos2 = (int)getRect().getMaxY();
 
-            int first = paddleLPos2 + 8;
-            int second = paddleLPos2 + 16;
-            int third = paddleLPos2 + 24;
-            int fourth = paddleLPos2 + 32;
+            int first = personajeLPos2 + 8;
+            int second = personajeLPos2 + 16;
+            int third = personajeLPos2 + 24;
+            int fourth = personajeLPos2 + 32;
 
             if (ballLPos2 < first) {
                 setXDir(-1 * getXDir());
@@ -220,7 +208,7 @@ public class Pelota extends Sprite implements Config {
                     }
 
                     bricks[i].setDestroyed(true);
-                    paddle.puntos++;
+                    personaje.puntos++;
                 }
             }
         }

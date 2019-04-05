@@ -1,33 +1,45 @@
 package PongBattleGround;
 
-import java.awt.event.KeyEvent;
+import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
 public class Personaje extends Sprite implements Config {
 
-    String paddle = "/img/paddle.jpg";
+    String imgPaddle = "/img/paddle.jpg";
 
     int dx;
     int dy;
-    int largo;
-    int vel;
     int puntos;
+    
+    int largo = 32;
+    int vel = 10;
+    int direccion = 0;
+    //this.primero = primero;
+    //this.usuario = usr;
+    //this.ID=1;
+    //this.equipo=eq;
+    //this.principal=principal;
+    
 
-    public Personaje() {
-
-        ImageIcon ii = new ImageIcon(this.getClass().getResource(paddle));
-        image = ii.getImage();
-
+    public Personaje() 
+    {  
+        ImageIcon imgPersonaje = new ImageIcon(this.getClass().getResource(imgPaddle));
+        image = imgPersonaje.getImage();
         width = image.getWidth(null);
         heigth = image.getHeight(null);
-
-        resetState();
+        posicionInicial();
     }
+    
     //MOVIMIENTOS DE LA RAQUETA
-    public void move() {
+    public void mover() 
+    {
         posY += dy;
         posX += dx;
-        
+        colisionPared();
+    }
+    
+    public void colisionPared()
+    {
         if (posY <= 2)
             posY = 2;
         
@@ -39,13 +51,17 @@ public class Personaje extends Sprite implements Config {
         if (posX >= Config.PADDLE_RIGHT)
           posX = Config.PADDLE_RIGHT;
     }
+    //Pinta los Objetos Graficos
 
-    
-    
+    public void dibujar(Graphics g) {
+            g.drawImage(getImage(), getX(), getY(),getWidth(), getHeight(), null);    
+    }
+
+   
     //POSICION INICIAL DE LA RAQUETA
-    public void resetState() {
-        posX = 200;
-        posY = 360;
+    public void posicionInicial() {
+        posX = 1250;
+        posY = 50;
     }
 }
 

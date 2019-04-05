@@ -1,29 +1,25 @@
 package PongBattleGround;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.Stroke;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Timer;
 import java.util.TimerTask;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Game extends JPanel implements Config {
     
-    Timer timer;
+    Timer temporizador;
     String message = "Game Over";
-    Pelota ball;
-    Personaje paddle;
-    Personaje paddle2;
-    Recogible bricks[];
+    Bola ball;
+    Personaje personaje;
+    Personaje personaje2;
+    Recogible[] bricks = new Recogible[90];
+    
  
 
     boolean ingame = true;
@@ -34,10 +30,9 @@ public class Game extends JPanel implements Config {
         setBackground(Color.black);
         addKeyListener(new TAdapter());
         setFocusable(true);
-        bricks = new Recogible[90];
         setDoubleBuffered(true);
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new ScheduleTask(), 1000, 10);
+        temporizador = new Timer();
+        temporizador.scheduleAtFixedRate(new ScheduleTask(), 1000, 10);
     }
 
         public void addNotify() {
@@ -47,13 +42,13 @@ public class Game extends JPanel implements Config {
         
     //Funcion Inicio    
     public void gameInit() {
-        ball = new Pelota();
-        paddle = new Personaje();
-        paddle.posX = 1000;
-        paddle.posY = 400;
-        paddle2 = new Personaje();
-        paddle2.posX = 100;
-        paddle2.posY = 400;
+        ball = new Bola();
+        personaje = new Personaje();
+        personaje.posX = 1000;
+        personaje.posY = 400;
+        personaje2 = new Personaje();
+        personaje2.posX = 100;
+        personaje2.posY = 400;
 
         int i, j;
         int k = 0;
@@ -69,33 +64,35 @@ public class Game extends JPanel implements Config {
     //Pinta los Objetos Graficos
     public void paint(Graphics g) {
         super.paint(g);
-      
-        g.fillRect(595, 0, 10, 1024);
+        g.fillRect(595, 0, 10, 1024);//Linea Central
         Font font = new Font("Verdana", Font.BOLD, 130);
         FontMetrics metr = this.getFontMetrics(font);
         g.setFont(font);
-        g.drawString(String.valueOf(paddle.puntos),
+        //Marcadores
+        g.drawString(String.valueOf(personaje.puntos),
                     (Config.WIDTH - metr.stringWidth("1234")) / 2,
                      200);
         g.drawString("0",
                     (Config.WIDTH + metr.stringWidth("12")) / 2,
                      200);
-        if (ingame) {
-            g.drawImage(ball.getImage(), ball.getX(), ball.getY(),
-                        ball.getWidth(), ball.getHeight(), this);
-            g.drawImage(paddle.getImage(), paddle.getX(), paddle.getY(),
-                        paddle.getWidth(), paddle.getHeight(), this);
-            g.drawImage(paddle2.getImage(), paddle2.getX(), paddle2.getY(),
-                        paddle2.getWidth(), paddle2.getHeight(), this);
-
-            for (int i = 0; i < 90; i++) {
+        //Pinta Objetos
+        if (ingame) 
+        {
+            ball.pintar(g);
+            personaje.dibujar(g);
+            personaje2.dibujar(g);
+            
+            for (int i = 0; i < bricks.length; i++) 
+            {
                 if (!bricks[i].isDestroyed())
-                    g.drawImage(bricks[i].getImage(), bricks[i].getX(),
-                                bricks[i].getY(), bricks[i].getWidth(),
-                                bricks[i].getHeight(), this);
+                {
+                    bricks[i].pintar(g); 
+                }        
             }
-        } else {
-
+        }
+        else 
+        {
+            //Pinta condicion de Fin y Victoria
             Font font2 = new Font("Verdana", Font.BOLD, 18);
             FontMetrics metr2 = this.getFontMetrics(font2);
             g.setColor(new Color(255,255,255));
@@ -104,8 +101,6 @@ public class Game extends JPanel implements Config {
                          (Config.WIDTH - metr2.stringWidth(message)) / 2,
                          Config.WIDTH / 2);
         }
-
-
         Toolkit.getDefaultToolkit().sync();
         g.dispose();
     }
@@ -117,35 +112,35 @@ public class Game extends JPanel implements Config {
              int key = e.getKeyCode();
 
             if (key == KeyEvent.VK_UP){
-                paddle.dy = 0;
+                personaje.dy = 0;
             }
 
             if (key == KeyEvent.VK_DOWN){
-                paddle.dy = 0;
+                personaje.dy = 0;
             }
 
             if (key == KeyEvent.VK_LEFT) {
-                paddle.dx = 0;
+                personaje.dx = 0;
             }
 
             if (key == KeyEvent.VK_RIGHT) {
-                paddle.dx = 0;
+                personaje.dx = 0;
             }
             
             if (key == KeyEvent.VK_W ){
-                paddle2.dy = 0;
+                personaje2.dy = 0;
             }
 
             if (key == KeyEvent.VK_S){
-                paddle2.dy = 0;
+                personaje2.dy = 0;
             }
             
             if (key == KeyEvent.VK_A ){
-                paddle2.dx = 0;
+                personaje2.dx = 0;
             }
 
             if (key == KeyEvent.VK_D){
-                paddle2.dx = 0;
+                personaje2.dx = 0;
             }
         }
 
@@ -153,37 +148,37 @@ public class Game extends JPanel implements Config {
             int key = e.getKeyCode();
 
             if (key == KeyEvent.VK_UP ){
-                paddle.dy = -2;
+                personaje.dy = -2;
             }
 
             if (key == KeyEvent.VK_DOWN){
-                paddle.dy = 2;
+                personaje.dy = 2;
             }
 
 
             if (key == KeyEvent.VK_LEFT) {
-                paddle.dx = -2;
+                personaje.dx = -2;
 
             }
 
             if (key == KeyEvent.VK_RIGHT) {
-                paddle.dx = 2;
+                personaje.dx = 2;
             }
 
             if (key == KeyEvent.VK_W ){
-                paddle2.dy = -2;
+                personaje2.dy = -2;
             }
 
             if (key == KeyEvent.VK_S){
-                paddle2.dy = 2;
+                personaje2.dy = 2;
             }
             
             if (key == KeyEvent.VK_A ){
-                paddle2.dx = -2;
+                personaje2.dx = -2;
             }
 
             if (key == KeyEvent.VK_D){
-                paddle2.dx = 2;
+                personaje2.dx = 2;
             }
             
         }
@@ -194,10 +189,11 @@ public class Game extends JPanel implements Config {
 
         public void run() {
 
-            ball.move();
-            paddle.move();
-            paddle2.move();
-            checkCollision();
+            ball.mover(personaje,personaje2);
+            personaje.mover();
+            personaje2.mover();
+            ball.colisiones(personaje,personaje2, bricks);
+            //checkCollision();
             repaint();
 
         }
@@ -205,136 +201,12 @@ public class Game extends JPanel implements Config {
 
     public void stopGame() {
         ingame = false;
-        timer.cancel();
+        temporizador.cancel();
     }
 
-    //Colisiones
-    public void checkCollision() {
+   
         
-        if (ball.getRect().getMaxY() > Config.BOTTOM) {
-            //stopGame();
-            ball.setYDir(-1 * ball.getYDir());
-        }
         
-        //Colision RECOGIBLES CONDICION DE GANAR
-        for (int i = 0, j = 0; i < 90; i++) {
-            if (bricks[i].isDestroyed()) {
-                j++;
-            }
-            if (j == 90) {
-                message = "Ganaste Webón!";
-                stopGame();
-            }
-        }
         
-        //COLISION RAQUETA1
-        if ((ball.getRect()).intersects(paddle.getRect())) {
-
-            int paddleLPos = (int)paddle.getRect().getMaxY();
-            int ballLPos = (int)ball.getRect().getMaxY();
-
-            int first = paddleLPos + 8;
-            int second = paddleLPos + 16;
-            int third = paddleLPos + 24;
-            int fourth = paddleLPos + 32;
-
-            if (ballLPos < first) {
-                ball.setXDir(-1);
-                ball.setYDir(-1);
-            }
-
-            if (ballLPos >= first && ballLPos < second) {
-                ball.setXDir(-1);
-                ball.setYDir(1 * ball.getYDir());
-            }
-
-            if (ballLPos >= second && ballLPos < third) {
-                ball.setXDir(-1);
-                ball.setYDir(-1);
-            }
-
-            if (ballLPos >= third && ballLPos < fourth) {
-                ball.setXDir(-1);
-                ball.setYDir(1 * ball.getYDir());
-            }
-
-            if (ballLPos > fourth) {
-                ball.setXDir(-1);
-                ball.setYDir(1);
-            }
-        }
-        //COLISION RAQUETA2
-        if ((ball.getRect()).intersects(paddle2.getRect())) {
-
-            int paddleLPos = (int)paddle2.getRect().getMaxY();
-            int ballLPos = (int)ball.getRect().getMaxY();
-
-            int first = paddleLPos + 8;
-            int second = paddleLPos + 16;
-            int third = paddleLPos + 24;
-            int fourth = paddleLPos + 32;
-
-            if (ballLPos < first) {
-                ball.setXDir(1);
-                ball.setYDir(-1);
-            }
-
-            if (ballLPos >= first && ballLPos < second) {
-                ball.setXDir(1);
-                ball.setYDir(1 * ball.getYDir());
-            }
-
-            if (ballLPos >= second && ballLPos < third) {
-                ball.setXDir(1);
-                ball.setYDir(-1);
-            }
-
-            if (ballLPos >= third && ballLPos < fourth) {
-                ball.setXDir(1);
-                ball.setYDir(1 * ball.getYDir());
-            }
-
-            if (ballLPos > fourth) {
-                ball.setXDir(1);
-                ball.setYDir(1);
-            }
-        }
-
-        //COLISION RECOGIBLES
-        for (int i = 0; i < 90; i++) {
-            if ((ball.getRect()).intersects(bricks[i].getRect())) {
-
-                int ballLeft = (int)ball.getRect().getMinX();
-                int ballHeight = (int)ball.getRect().getHeight();
-                int ballWidth = (int)ball.getRect().getWidth();
-                int ballTop = (int)ball.getRect().getMinY();
-
-                Point pointRight =new Point(ballLeft + ballWidth + 1, ballTop);
-                Point pointLeft = new Point(ballLeft - 1, ballTop);
-                Point pointTop = new Point(ballLeft, ballTop - 1);
-                Point pointBottom = new Point(ballLeft, ballTop + ballHeight + 1);
-
-                if (!bricks[i].isDestroyed()) {
-                    if (bricks[i].getRect().contains(pointRight)) {
-                        ball.setXDir(-1);
-                    }
-
-                    else if (bricks[i].getRect().contains(pointLeft)) {
-                        ball.setXDir(1);
-                    }
-
-                    if (bricks[i].getRect().contains(pointTop)) {
-                        ball.setYDir(1);
-                    }
-
-                    else if (bricks[i].getRect().contains(pointBottom)) {
-                        ball.setYDir(-1);
-                    }
-
-                    bricks[i].setDestroyed(true);
-                    paddle.puntos++;
-                }
-            }
-        }
-    }
+        
 }

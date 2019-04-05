@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 
 public class Pong extends JFrame {
-
     public Pong()
     {
         add(new Game());
