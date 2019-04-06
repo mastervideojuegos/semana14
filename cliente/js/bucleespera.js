@@ -1,8 +1,9 @@
 function bucleespera(){
+  console.log("bucle espera");
     JugadorEnSala();
 
     banConfirmacion= true;
-	
+
 	jugadoresActuales1 = 0;
 	jugadoresActuales2 = 0;
     for(var i = 0; i<jugadores.length;i++){

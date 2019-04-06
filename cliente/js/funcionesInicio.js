@@ -14,6 +14,7 @@ function reescalaVentana(){
 
 //login
 function enviarAjaxLogin(usr,psw){
+		console.log("enviar login");
 	//console.log("login: "+nombre)
 	if(banBD){
 		banBD = false;
@@ -22,7 +23,7 @@ function enviarAjaxLogin(usr,psw){
 			type: "POST",
 			dataType: "html",
 			contentType: "application/x-www-form-urlencoded",
-			url:"php/validarUsuario.php",
+			url:"php/logIn.php",
 			data:"usuario="+usr+"&contrasena="+psw,
 			//beforeSend:inicioEnvio,
 			success:finRecibirLogin,
@@ -36,6 +37,7 @@ function enviarAjaxLogin(usr,psw){
 }
 
 function finRecibirLogin(dato){
+	console.log("fin login:"+dato);
 	if(dato[0]=="E"){
 		$("#msgLogin").text(dato)
 		$( "#btnListo" ).attr("disabled", "enable");
@@ -190,4 +192,3 @@ function actualizaExitoP(dato){
 
 	banBD = true;
 }
-

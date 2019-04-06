@@ -1,4 +1,5 @@
 function bucle(){
+  console.log("bucle");
   contextoFondo.clearRect(0, 0, camara.anchuraPantalla, camara.alturaPantalla);
   mapa.DibujarEscenario(contextoFondo,camara);
   uiClass.dibujarPuntos(contextoUI);
