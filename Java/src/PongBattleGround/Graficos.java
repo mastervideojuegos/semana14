@@ -24,43 +24,64 @@ public class Graficos extends Sprite {
      heigth = image.getHeight(null);
      
 
-    escenarios.push(fondo_1);
+    //escenarios.push(fondo_1);
     }
     
    
 //---------------------------------------//
 
 // Bolas //
-var bolas = [];
+    public void bolas() {
+        int bolas[];
 
     //Bola Blanca
-    var bola_1      = new Image();
-        bola_1.src  = "img/bola_1.png";
-    bolas.push(bola_1);
+     String imgBola_1 = "img/bola_1.png";   
+     ImageIcon imgBolas = new ImageIcon(this.getClass().getResource(imgBola_1));
+     image = imgBolas.getImage();
+     width = image.getWidth(null);
+     heigth = image.getHeight(null);
+   
+    //bolas.push(bola_1);
+    }
 //---------------------------------------//
 
 // Jugadores //
-var jugadores   = [];
-var jugador     = 0;
+    public void jugadores() 
+    {
+        int jugadores[];
+        int jugador = 0;
 
-    //Pad Amarillo
-    var pad_1       = new Image();
-        pad_1.src   = "img/pad_1.jpg";
-    jugadores.push(pad_1);
-    
-    //Pad Azul
-    var pad_2       = new Image();
-        pad_2.src   = "img/pad_2.jpg";
-    jugadores.push(pad_2);
-    
-    //Pad Rojo
-    var pad_3       = new Image();
-        pad_3.src   = "img/pad_3.jpg";
-    jugadores.push(pad_3);
-    
-    //Pad Verde
-    var pad_4       = new Image();
-        pad_4.src   = "img/pad_4.jpg";
-    jugadores.push(pad_4);
+        //Pad Amarillo
+        String imgJugador_1 = "img/pad_1.jpg";   
+        ImageIcon imgJugadores1 = new ImageIcon(this.getClass().getResource(imgJugador_1));
+        image = imgJugadores1.getImage();
+        width = image.getWidth(null);
+        heigth = image.getHeight(null);
+        //jugadores.push(pad_1);
+
+        //Pad Azul
+        String imgJugador_2 = "img/pad_2.jpg";   
+        ImageIcon imgJugadores2 = new ImageIcon(this.getClass().getResource(imgJugador_2));
+        image = imgJugadores2.getImage();
+        width = image.getWidth(null);
+        heigth = image.getHeight(null);
+        //jugadores.push(pad_2);
+
+        //Pad Rojo
+        String imgJugador_3 = "img/pad_3.jpg";   
+        ImageIcon imgJugadores3 = new ImageIcon(this.getClass().getResource(imgJugador_3));
+        image = imgJugadores3.getImage();
+        width = image.getWidth(null);
+        heigth = image.getHeight(null);
+        //jugadores.push(pad_3);
+
+        //Pad Verde
+        String imgJugador_4 = "img/pad_4.jpg";   
+        ImageIcon imgJugadores4 = new ImageIcon(this.getClass().getResource(imgJugador_4));
+        image = imgJugadores4.getImage();
+        width = image.getWidth(null);
+        heigth = image.getHeight(null);
+        //jugadores.push(pad_3);
+    }
 //---------------------------------------//
 }

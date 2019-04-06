@@ -5,63 +5,71 @@ import javax.swing.ImageIcon;
 
 public class Personaje extends Sprite implements Config {
 
-    String imgPaddle = "/img/paddle.jpg";
+    String imgPaddle = "/img/pad_1.jpg";
 
     int dx;
     int dy;
     int puntos;
+    Poderes poderes;
     
-    int largo = 32;
+    //Variables BD
+    int listo = 0;
+    //int posX = 101;
+    //int posY = 330;
     int vel = 10;
-    int direccion = 0;
-    //this.primero = primero;
-    //this.usuario = usr;
-    //this.ID=1;
-    //this.equipo=eq;
-    //this.principal=principal;
-    
+    int direccion = 1;
 
-    public Personaje() 
+    //Dimensiones de Barra
+    int largo      = 32;
+    float ladoLargo	= (float) (largo * 0.5);
+    int largoMax 	= largo;
+
+    float ancho       = (float) (largo * 0.5);
+    float ladoAncho	= (float) (ancho * 0.5);
+    float anchoMax 	= ancho;
+    
+    public Personaje(String usuario,int equipo,int principal,int primero,String idUsr,String idRoom) 
     {  
+        int id = Integer.parseInt(idUsr);
+        int idSala = Integer.parseInt(idRoom);
+        
         ImageIcon imgPersonaje = new ImageIcon(this.getClass().getResource(imgPaddle));
         image = imgPersonaje.getImage();
         width = image.getWidth(null);
         heigth = image.getHeight(null);
-        posicionInicial();
+       
     }
     
     //MOVIMIENTOS DE LA RAQUETA
-    public void mover() 
+    public void moverse() 
     {
-        posY += dy;
-        posX += dx;
-        colisionPared();
+        poderes = new Poderes();
+        if(!poderes.bCongelaJugador)
+        {
+            posY += vel * direccion;
+            colisionPared();       
+        }
     }
-    
     public void colisionPared()
     {
-        if (posY <= 2)
-            posY = 2;
-        
-        if (posY >= Config.PADDLE_DOWN)
-            posY = Config.PADDLE_DOWN;
-            
-        if (posX <= 2) 
-          posX = 2;
-        if (posX >= Config.PADDLE_RIGHT)
-          posX = Config.PADDLE_RIGHT;
+        if(posY + ladoLargo > WIDTH)
+        {
+            posY = (int) (WIDTH - ladoLargo);
+        }
+        else if(posY - ladoLargo <0)
+        {
+            posY = (int) ladoLargo;
+        }
     }
+    
     //Pinta los Objetos Graficos
 
     public void dibujar(Graphics g) {
-            g.drawImage(getImage(), getX(), getY(),getWidth(), getHeight(), null);    
+            g.drawImage(getImage(), getX(), getY(),getWidth(), getHeight(), null); 
+            
     }
 
-   
-    //POSICION INICIAL DE LA RAQUETA
-    public void posicionInicial() {
-        posX = 1250;
-        posY = 50;
-    }
+    
+
 }
 

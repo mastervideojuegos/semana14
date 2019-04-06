@@ -1,13 +1,9 @@
-
 package PongBattleGround;
 
 import java.awt.event.KeyEvent;
 
-/**
- *
- * @author Stormk90
- */
-public class Poderes extends Game {
+public class Poderes {
+    
     // Power Ups //
 
     boolean bSuperBola          = false;
@@ -24,33 +20,34 @@ public class Poderes extends Game {
 
     // Bola //
         //SuperBola
-        public void SuperBola() 
+        public int SuperBola() 
         {
-           ball.tamanio = 32;
-            System.out.println("SuperBola");
+           System.out.println("SuperBola");
+           return 2; 
         }
         //MiniBola
-        public void MiniBola()
+        public int MiniBola()
         {
-            ball.tamanio = 8;
             System.out.println("MiniBola");
+            return (int) 0.5;
         }
         //AceleraBola
-        public void AceleraBola()
+        public int AceleraBola()
         {
-            ball.velocidad = (float) 1.5;
             System.out.println("AceleraBola");
+            return (int) 1.5;
         }
         //DeceleraBola
-        public void DeceleraBola()
+        public int DeceleraBola()
         {
-            ball.velocidad = (float) 0.5;
             System.out.println("DeceleraBola");
+            return (int) 0.5;
         }
         //MultiBola
-        public void MultiBola()
+        public int MultiBola()
         {
-            //TODO
+            System.out.println("MultiBola");
+            return (int) 4;
         }
         //TeleBola
         public void TeleBola()
@@ -61,66 +58,35 @@ public class Poderes extends Game {
 
     // Jugador //
         //SuperJugador
-        public void SuperJugador()
+        public int SuperJugador()
         {
-            personaje.largo = 64;
             System.out.println("SuperJugador");
+            return 2;
         }
         //MiniJugador
-        public void MiniJugador()
+        public int MiniJugador()
         {
-            personaje.largo = 16;
             System.out.println("MiniJugador");
+            return (int) 0.5;
         }
         //AceleraJugador
-        public void AceleraJugador()
+        public int AceleraJugador()
         {
-            personaje.vel = 15;
             System.out.println("AceleraJugador");
+            return (int) 1.5;
         }
         //DeceleraJugador
-        public void DeceleraJugador()
+        public int DeceleraJugador()
         {
-            personaje.vel = 5;
             System.out.println("DeceleraJugador");
+            return (int) 0.5;
         }
         //CongelaJugador
-        public void CongelaJugador()
+        public boolean CongelaJugador()
         {
             bCongelaJugador = !bCongelaJugador;
+            return bCongelaJugador;
         }
-//---------------------------------------//
-        public void keyPressed(KeyEvent e) {
-            int keyCode = e.getKeyCode();
-            switch( keyCode ) { 
-                case KeyEvent.VK_1:
-                     SuperBola(); 
-                    break;
-                case KeyEvent.VK_2:
-                    MiniBola();
-                    break;
-                case KeyEvent.VK_3:
-                   AceleraBola(); 
-                    break;
-                case KeyEvent.VK_4 :
-                   DeceleraBola();
-                    break;
-                case KeyEvent.VK_5 :
-                   SuperJugador();
-                    break;
-                case KeyEvent.VK_6 :
-                    MiniJugador();
-                    break;
-                case KeyEvent.VK_7 :
-                    AceleraJugador();
-                    break;
-                case KeyEvent.VK_8 :
-                   DeceleraJugador();
-                    break;
-                case KeyEvent.VK_9 :
-                  CongelaJugador();
-                    break;
-            }
-        }
+
  
 }
