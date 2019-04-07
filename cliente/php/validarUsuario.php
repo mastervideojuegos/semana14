@@ -2,10 +2,10 @@
     // Se conecta a la base de datos
     
     include("clases/Usuario.php");
-    //include("clases/Sala.php");
+    include("clases/Sala.php");
     
     $usuario = new Usuario();
-    //$sala = new Sala();
+    $sala = new Sala();
     
     $nombre = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
@@ -14,16 +14,16 @@
     
     if($usuario->id == ""){
         echo $usuario->msg;
-    }else{/*
+    }else{
         $sala->obtenerSala($usuario->id);
         
-        if($sala->id == ""){*/
+        if($sala->id == ""){
             echo $sala->msg;
-        /*}else{
+        }else{
             $longaniza = $usuario->id."|".$sala->id;
             echo $longaniza;
             echo "&".$sala->msg;
-        }*/
+        }
     }
     
     

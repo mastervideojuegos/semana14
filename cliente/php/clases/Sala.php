@@ -119,7 +119,7 @@
                 $creado = false;
                 $this->msg .= "Error: no se puede bloquear la sala";
             }else{
-                if($this->existeSala($sala)){
+                if($this->existeSala()){
                     $creado = true;
                 }else{
                     $creado = false;
