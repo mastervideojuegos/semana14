@@ -15,8 +15,8 @@ function Bola(mapa)
   this.pelotaRandom = function(mapa)
   {
     //iniciar posicion
-    this.posX       = Math.random()*(mapa.largo*0.33)+mapa.largo*0.33;
-    this.posY       = Math.random()*(mapa.ancho*0.33)+mapa.ancho*0.33;
+    this.posX       = Math.random()*(mapa.ancho*0.33)+mapa.ancho*0.33;
+    this.posY       = Math.random()*(mapa.alto*0.33)+mapa.alto*0.33;
 
     //iniciar direccion
     console.log(parseInt(Math.random()*2));
@@ -26,12 +26,12 @@ function Bola(mapa)
 
   this.colicionPared = function(mapa,px,py)
   {
-    if(px-this.radio <=0 || px+this.radio >=mapa.largo)
+    if(px-this.radio <=0 || px+this.radio >=mapa.ancho)
     {
       this.pelotaRandom(mapa);
         //Punto!!!!!
 		}
-    if(py-this.radio <=0 || py+this.radio >=mapa.ancho)
+    if(py-this.radio <=0 || py+this.radio >=mapa.alto)
     {
       this.avanceY *=-1;
     }
@@ -43,8 +43,8 @@ function Bola(mapa)
     {
       if(px+this.radio >= jugadores[x].posX-jugadores[x].ladoAncho &&
           px-this.radio <= jugadores[x].posX+jugadores[x].ladoAncho &&
-          py+this.radio >= jugadores[x].posY-jugadores[x].ladoLargo &&
-    			py-this.radio <= jugadores[x].posY+jugadores[x].ladoLargo
+          py+this.radio >= jugadores[x].posY-jugadores[x].ladoAlto &&
+    			py-this.radio <= jugadores[x].posY+jugadores[x].ladoAlto
     			)
       {
     	   console.log("colicion fin")

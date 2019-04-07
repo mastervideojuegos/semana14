@@ -25,8 +25,8 @@ function Personaje(usuario,eq,principal, primero,idUsr,idSala)
 	this.anchoMax 	= this.ancho;
 
 	this.colicionPared = function(mapa){
-		if(this.posY + this.ladoAlto > mapa.ancho){
-			this.posY = mapa.ancho - this.ladoAlto;
+		if(this.posY + this.ladoAlto > mapa.alto){
+			this.posY = mapa.alto - this.ladoAlto;
 		}
 		else if(this.posY - this.alto/2 <0){
 			this.posY = this.ladoAlto;
