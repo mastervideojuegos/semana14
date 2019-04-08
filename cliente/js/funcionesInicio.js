@@ -42,14 +42,28 @@ function finRecibirLogin(dato){
 		$("#msgLogin").text(dato)
 		$( "#btnListo" ).attr("disabled", "enable");
 	}else{
-		var datos = dato.split("|");
-		var idUsr = parseInt(datos[0]);
-		var idSala = parseInt(datos[1]);
-		jugadores[0] = new Personaje(usuario,1,0,0, idUsr, idSala);
-		actualizarLista(usuario);
+		var usrDatos =  dato.split("&")[0];
+		var modoDatos = dato.split("&")[1];
+		var idUsr = parseInt(usrDatos.split("|")[1]);
+		datos = modoDatos.split(";")
+		for(var x in datos){
+			var id = datos[x].split("|")[3]+"a"+datos[x].split("|")[4]
+			var texto =datos[x].split("|")[2];
+			var cadena = "<button id=\""+ id+
+				"\" type=\"button\" class=\"btn btn-danger btnModo\">"+texto+"</button><br>";
+			$( "#lgModoItem	" ).append(cadena);
+			$( "#"+id ).click(function() {
+				btnModoClick(id);
+			});
+			//$('#'+id).click('click', '.'+id, btnModoClick(id));
+
+		}
+		jugadores[0] = new Personaje(usuario,1,0,0, idUsr, 0);
+
+
 
 		$( "#contenedorInicio" ).hide()
-		$( "#contenedorJuego" ).show()
+		$( "#contenedorModalidades" ).show()
 
 		//bucleespera();
 		//lugar ajax
@@ -58,11 +72,23 @@ function finRecibirLogin(dato){
 	banBD = true;
 
 }
+function btnModoClick(id) {
+	console.log("btnModo: "+id);
+	jugadoresEquipo1 = parseInt(id.split("a")[0]);
+	jugadoresEquipo2 =  parseInt(id.split("a")[1]);
+
+
+	actualizarLista(usuario);
+
+	$( "#contenedorModalidades" ).hide();
+	$( "#contenedorSala" ).show();
+	bucleespera();
+}
 
 function actualizarLista(usr) {
-	var i = 0;
+	console.log("actualizar lista");
 	for(i=0;i<jugadores.length;i++){
-		if(jugadores[i].usuario == usr){
+		var i = 0;
 			if(jugadores[i].equipo == 1){
 				var cadena = "<li class=\"list-group-item1 listaEspera\"><h3>"+usr+"</h3></li>";
 				$( "#lgEspera1" ).append(cadena);
@@ -70,7 +96,7 @@ function actualizarLista(usr) {
 				var cadena = "<li class=\"list-group-item2 listaEspera\"><h3>"+usr+"</h3></li>";
 				$( "#lgEspera2" ).append(cadena);
 			}
-		}
+
 	}
 }
 

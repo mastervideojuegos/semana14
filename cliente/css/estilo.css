@@ -70,7 +70,7 @@ body
 	width:300px;
 	height:220px;
 	text-align: center;
-}
+	}
 
 #contenedorJuego{
 	position: absolute;
@@ -113,25 +113,25 @@ body
 	top:20%;
 	left:20%;
     margin:0px;
-	display: none;
 	width:60%;
 	height:60%;
 	text-align: center;
+	display: none;
 }
+
 .btnModo{
 	 width: 200px;
 	 margin: 5px;
 }
 
 #botonesEspera{
-    font-size: 20px;
-
+		position:absolute;
+		top:50%;
+		width: 100%;
+		font-size: 20px;
     text-align: center;
     border:3px solid black;
-    margin-right: -50%;
-    transform: translate(-50%,-50%);
-	z-index:150;
-
+    z-index:150;
 
 }
 
@@ -149,7 +149,7 @@ body
 #contenedorLista2{
 	position:absolute;
 	top:0%;
-	width:50%;
+	width:45%;
 	text-align:center;
 }
 

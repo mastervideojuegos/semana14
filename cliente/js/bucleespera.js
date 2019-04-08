@@ -1,5 +1,6 @@
 function bucleespera(){
-  console.log("bucle espera");
+  //console.log("bucle espera");
+    /*
     JugadorEnSala();
 
     banConfirmacion= true;
@@ -29,5 +30,5 @@ function bucleespera(){
     }else{
         clearTimeout(temporizador);
     	temporizador = setTimeout("bucleespera()", 60);
-    }
+    }*/
 }

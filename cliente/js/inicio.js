@@ -81,11 +81,7 @@ function inicio(){
 	});
 
 //Boton Siguiente
-	$( "#btnSiguiente" ).click(function() {
-		$( "#contenedorModalidades" ).hide();
-		$( "#contenedorSala" ).show();
-		bucleespera();
-	});
+
 
 //Boton 1vs1
 	$( "#1vs1" ).click(function() {
