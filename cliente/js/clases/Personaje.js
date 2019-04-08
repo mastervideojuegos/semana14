@@ -51,6 +51,9 @@ function Personaje(usuario,eq,principal, primero,idUsr,idSala)
     }
 
 			this.envioSockets = function(){
-				socket.send("test js")
+				var cadena = "s|" + jugadores[0].usuario +
+				 						"|"+jugadores[0].equipo
+										"|"+jugadores[0].listo;
+				socket.send(cadena)
 			}
 }
