@@ -1,0 +1,18 @@
+
+JS Raul y david
+Pendientes
+- mover libremente el personaje
+- mejorar colicion con la pelota.
+- mejorar efectos
+- mejorar recogibles
+- interfaz contadores.
+- condicion de victoria
+- eventos
+- vidas
+- projectiles
+
+Jorge
+- Login
+- Sala
+- Partida
+- Sockets
