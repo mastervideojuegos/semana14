@@ -6,20 +6,31 @@ import javax.swing.ImageIcon;
 public class Personaje extends Sprite implements Config {
 
     String imgPaddle = "/img/paddle.jpg";
-
+    
+    //Variables Base de datos
+    String usuario;
+    int id;
+    int idSala;
+    int list;
+    int primero;
+    int equipo;
+    int principal;
+    
+    //Variables personaje
     int dx;
     int dy;
-    int puntos;
-    
-    int largo = 32;
     int vel = 10;
     int direccion = 0;
-    //this.primero = primero;
-    //this.usuario = usr;
-    //this.ID=1;
-    //this.equipo=eq;
-    //this.principal=principal;
+    int puntos;
     
+    //Variables dimensiones
+    float alto = 32;
+    float ladoAlto = (float) (alto*0.5);
+    float altoMax = alto;
+    
+    float ancho = (float) (alto*0.5);
+    float ladoAncho = (float) (ancho*0.5);
+    float anchoMax = ancho;
 
     public Personaje() 
     {  
@@ -33,9 +44,11 @@ public class Personaje extends Sprite implements Config {
     //MOVIMIENTOS DE LA RAQUETA
     public void mover() 
     {
-        posY += dy;
-        posX += dx;
-        colisionPared();
+        if(!bCongelaJugador){
+            posY += dy;
+            posX += dx;
+            colisionPared();
+        }
     }
     
     public void colisionPared()
