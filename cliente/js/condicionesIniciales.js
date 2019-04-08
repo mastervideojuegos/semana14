@@ -32,7 +32,7 @@ var usuario = "";
 var banConfirmacion = false;
 var banBD = true;
 var poderes = new PowerUps();
-var online = true;
+var online = false;
 
 var jugadoresEquipo1 = 1;
 var jugadoresEquipo2 = 1;
