@@ -1,10 +1,18 @@
 function Mapa()
 {
-    this.x = 1400;
-    this.y = 700;
-    
-    this.DibujarEscenario = function(ctx,camara)
-    {
-        ctx.drawImage(mapaActual, 0, 100, this.x, this.y);
-    }
+  this.ancho = 1400;
+  this.alto = 700;
+
+  this.desfaseX = 0;
+  this.desfaseY = 100;
+
+  this.DibujarEscenario = function(ctx,camara){
+    //Dibujamos fondo
+    ctx.drawImage(mapaActual, camara.posX, camara.posY, this.ancho, this.alto);
+
+    //Dibujamos contorno del fondo
+    ctx.rect(camara.posX, camara.posY, this.ancho, this.alto);
+    ctx.strokeStyle="red";
+    ctx.stroke();
+  }
 }

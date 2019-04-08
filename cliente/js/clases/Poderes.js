@@ -1,125 +1,120 @@
 // Power Ups //
-
-var bSuperBola          = false;
-var bMiniBola           = false;
-var bAceleraBola        = false;
-var bDeceleraBola       = false;
-var bMultiBola          = false;
-var bTeleBola           = false;
-var bSuperJugador       = false;
-var bMiniJugador        = false;
-var bAceleraJugador     = false;
-var bDeceleraJugador    = false;
+var bPoderVisible       = false;
+var contadorPoderes     = 0;
 var bCongelaJugador     = false;
+var poderUtilizado      = 0;
 
     // Bola //
         //SuperBola
         function SuperBola()
         {
-            bola.tamanio = 32;
             console.log("SuperBola");
+            return 2;
         }
         //MiniBola
         function MiniBola()
         {
-            bola.tamanio = 8;
             console.log("MiniBola");
+            return 0.5;
         }
         //AceleraBola
         function AceleraBola()
         {
-            bola.velocidad = 1.5;
             console.log("AceleraBola");
+            return 1.5;
         }
         //DeceleraBola
         function DeceleraBola()
         {
-            bola.velocidad = 0.5;
             console.log("DeceleraBola");
+            return 0.5;
         }
         //MultiBola
         function MultiBola()
         {
-            //TODO
+            console.log("MultiBola");
+            return 4;
         }
         //TeleBola
         function TeleBola()
         {
             //TODO
         }
-//---------------------------------------//   
+//---------------------------------------//
 
     // Jugador //
         //SuperJugador
         function SuperJugador()
         {
-            personaje.largo = 64;
             console.log("SuperJugador");
+            return 2;
         }
         //MiniJugador
         function MiniJugador()
         {
-            personaje.largo = 16;
             console.log("MiniJugador");
+            return 0.5;
         }
         //AceleraJugador
         function AceleraJugador()
         {
-            personaje.vel = 15;
             console.log("AceleraJugador");
+            return 1.5;
         }
         //DeceleraJugador
         function DeceleraJugador()
         {
-            personaje.vel = 5;
             console.log("DeceleraJugador");
+            return 0.5;
         }
         //CongelaJugador
         function CongelaJugador()
         {
-            bCongelaJugador = !bCongelaJugador;
+            console.log("CongelaJugador");
+            return true;
         }
 //---------------------------------------//
 
-$(document).keydown(function(e) 
+function PowerUps()
 {
-    switch (e.which) 
+  this.radio            = 16;
+  this.posX             = 0;
+  this.posY             = 0;
+  this.centroX          = 0;
+  this.centroY          = 0;
+  this.indexPoder       = 0;
+  this.poderActual      = null;
+
+  this.valoresRandom = function()
+  {
+    this.posX             = 200 + Math.random()*900;
+    this.posY             = 200 + Math.random()*400;
+    this.centroX          = this.posX+this.radio+camara.posX;
+    this.centroY          = this.posY+this.radio+camara.posY;
+    this.indexPoder       = Math.floor(Math.random()*5.9);
+    this.poderActual      = imgpoderes[this.indexPoder];
+    poderUtilizado        = this.indexPoder;
+  }
+
+  this.dibujar = function(ctx, cam)
+  {
+    ctx.drawImage(this.poderActual, this.posX+cam.posX, this.posY+cam.posY);
+  }
+
+  this.buclePoderes = function()
+  {
+    if(contadorPoderes == 50)
     {
-        // 1 //
-        case 49:
-            SuperBola();
-            break;
-        // 2 //
-        case 50:
-            MiniBola();
-            break;
-        // 3 //
-        case 51:
-            AceleraBola();
-            break;
-        // 4 //
-        case 52:
-            DeceleraBola();
-            break;
-        // 5 //
-        case 53:
-            SuperJugador();
-            break;
-        // 6 //
-        case 54:
-            MiniJugador();
-            break;
-        // 7 //
-        case 55:
-            AceleraJugador();
-            break;
-        // 8 //
-        case 56:
-            DeceleraJugador();
-            break;
-        // 9 //
-        case 57:
-            CongelaJugador();
-            break;
+        bPoderVisible = true;
+        this.valoresRandom();
     }
-});
+    if(contadorPoderes > 50 && contadorPoderes <= 100 && bPoderVisible)
+    {
+        this.dibujar(contextoFondo, camara);
+    }
+    if (contadorPoderes > 100)
+    {
+        contadorPoderes = 0;
+    }
+  }
+}
