@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/semana14/Java/src/PongBattleGround/Graficos.java</file>
-            <file>file:/C:/xampp/htdocs/semana14/Java/src/PongBattleGround/Personaje.java</file>
+            <file>file:/C:/Users/Stormk90/Documents/NetBeansProjects/PBG_2/src/PongBattleGround/Personaje.java</file>
+            <file>file:/C:/Users/Stormk90/Documents/NetBeansProjects/PBG_2/src/PongBattleGround/Sprite.java</file>
+            <file>file:/C:/Users/Stormk90/Documents/NetBeansProjects/PBG_2/src/PongBattleGround/Recogible.java</file>
+            <file>file:/C:/Users/Stormk90/Documents/NetBeansProjects/PBG_2/src/PongBattleGround/Graficos.java</file>
+            <file>file:/C:/Users/Stormk90/Documents/NetBeansProjects/PBG_2/src/PongBattleGround/Config.java</file>
+            <file>file:/C:/Users/Stormk90/Documents/NetBeansProjects/PBG_2/src/PongBattleGround/Game.java</file>
+            <file>file:/C:/Users/Stormk90/Documents/NetBeansProjects/PBG_2/src/PongBattleGround/Bola.java</file>
+            <file>file:/C:/Users/Stormk90/Documents/NetBeansProjects/PBG_2/src/PongBattleGround/Poderes.java</file>
+            <file>file:/C:/Users/Stormk90/Documents/NetBeansProjects/PBG_2/src/PongBattleGround/Menu.java</file>
+            <file>file:/C:/Users/Stormk90/Documents/NetBeansProjects/PBG_2/src/PongBattleGround/Pong.java</file>
         </group>
     </open-files>
 </project-private>

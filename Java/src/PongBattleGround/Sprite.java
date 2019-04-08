@@ -21,6 +21,7 @@ public class Sprite {
 
     public int getX() {
         return posX;
+        
     }
 
     public void setY(int posY) {
