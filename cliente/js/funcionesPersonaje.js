@@ -30,10 +30,10 @@ function dibujarPersonajes(ctx, camara)
 
 function crearJugadores()
 {
-	jugadores[0]=new Personaje('yo',1,0,0,0,0);
-	jugadores[1]=new Personaje('otro',1,1,1,0,0);
-	jugadores[2]=new Personaje('otro2',2,1,1,0,0);
-	jugadores[3]=new Personaje('otro3',2,1,1,0,0);
+	jugadores[0]=new Personaje('Jugador_1',1,0,0,0,0);
+	jugadores[1]=new Personaje('Jugador_2',1,1,1,0,0);
+	jugadores[2]=new Personaje('Jugador_3',2,1,1,0,0);
+	jugadores[3]=new Personaje('Jugador_4',2,1,1,0,0);
 	jugadores[1].posY=300;
 	jugadores[2].posX=50;
 	jugadores[2].posY=300;
