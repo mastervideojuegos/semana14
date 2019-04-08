@@ -20,18 +20,22 @@ public class Personaje extends Sprite implements Config {
     int direccion = 1;
 
     //Dimensiones de Barra
-    int largo      = 32;
-    float ladoLargo	= (float) (largo * 0.5);
-    int largoMax 	= largo;
+    int alto      = 32;
+    float ladoAlto	= (float) (alto * 0.5);
+    int altoMax 	= alto;
 
-    float ancho       = (float) (largo * 0.5);
+    float ancho       = (float) (alto * 0.5);
     float ladoAncho	= (float) (ancho * 0.5);
     float anchoMax 	= ancho;
     
-    public Personaje(String usuario,int equipo,int principal,int primero,String idUsr,String idRoom) 
+    public Personaje(String usuarioName,int eq,int principalVariable,int primeroVariable,String idUsr,String idRoom) 
     {  
+        String usuario = usuarioName;
         int id = Integer.parseInt(idUsr);
         int idSala = Integer.parseInt(idRoom);
+        int primero = primeroVariable;
+        int equipo = eq;
+        int principal = principalVariable;
         
         ImageIcon imgPersonaje = new ImageIcon(this.getClass().getResource(imgPaddle));
         image = imgPersonaje.getImage();
@@ -47,18 +51,18 @@ public class Personaje extends Sprite implements Config {
         if(!poderes.bCongelaJugador)
         {
             posY += vel * direccion;
-            colisionPared();       
+            colisionPared();
         }
     }
     public void colisionPared()
     {
-        if(posY + ladoLargo > WIDTH)
+        if(posY + ladoAlto > HEIGTH)
         {
-            posY = (int) (WIDTH - ladoLargo);
+            posY = (int) (WIDTH - ladoAlto);
         }
-        else if(posY - ladoLargo <0)
+        else if(posY - ladoAlto <0)
         {
-            posY = (int) ladoLargo;
+            posY = (int) ladoAlto;
         }
     }
     

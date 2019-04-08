@@ -145,7 +145,7 @@ public class Game extends JPanel implements Config {
             jugadores[j].moverse();
             if(j > 0)
             {
-                if(jugadores[j].posY - jugadores[j].ladoLargo <=0 || jugadores[j].posY + jugadores[j].ladoLargo >= 1400)
+                if(jugadores[j].posY - jugadores[j].ladoAlto <=0 || jugadores[j].posY + jugadores[j].ladoAlto >= 1400)
                 {
                     jugadores[j].direccion*=-1;
                 }
@@ -175,7 +175,7 @@ public class Game extends JPanel implements Config {
 	jugadores[1]=new Personaje("otro",1,1,1,"0","0");
 	jugadores[2]=new Personaje("otro2",2,1,1,"0","0");
 	jugadores[3]=new Personaje("otro3",2,1,1,"0","0");
-	jugadores[1].posY=500;
+	jugadores[1].posY=300;
 	jugadores[2].posX=50;
 	jugadores[2].posY=300;
 	jugadores[3].posX=50;

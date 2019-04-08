@@ -74,8 +74,8 @@ public class Bola extends Sprite implements Config {
         {
             if( px + radio >= jugadores[x].posX-jugadores[x].ladoAncho &&
                 px - radio <= jugadores[x].posX+jugadores[x].ladoAncho &&
-                py + radio >= jugadores[x].posY -jugadores[x].ladoLargo &&
-                py - radio <= jugadores[x].posY +jugadores[x].ladoLargo)
+                py + radio >= jugadores[x].posY -jugadores[x].ladoAlto &&
+                py - radio <= jugadores[x].posY +jugadores[x].ladoAlto)
             {
                 //System.out.println("Colision Fin");
                 avanceX *=-1;   
