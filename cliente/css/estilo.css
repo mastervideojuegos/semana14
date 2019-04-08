@@ -106,7 +106,6 @@ body
 	display:none;
 }
 
-#contenedorSala,
 #contenedorModalidades{
 	position:absolute;
 	overflow: hidden;
@@ -118,7 +117,25 @@ body
 	text-align: center;
 	display: none;
 }
+#contenedorSala{
+	position:absolute;
+	overflow: hidden;
+	top:10%;
+	left:20%;
+    margin:0px;
+	width:60%;
+	height:60%;
+	text-align: center;
+	display: none;
+}
+#contenedorSalaTitulo{
+	position:absolute;
+	overflow: hidden;
+	top:0%;
+	width:100%;
+	text-align: center;
 
+}
 .btnModo{
 	 width: 200px;
 	 margin: 5px;
@@ -126,11 +143,10 @@ body
 
 #botonesEspera{
 		position:absolute;
-		top:50%;
+		top:75%;
 		width: 100%;
 		font-size: 20px;
     text-align: center;
-    border:3px solid black;
     z-index:150;
 
 }
@@ -139,8 +155,9 @@ body
      height:100%;
 }
 
-#tituloSala1,
-#tituloSala2,
+.tituloSala{
+	color:white;
+}
 #tituloBotonesModalidades{
 	color:black;
 }
@@ -148,7 +165,7 @@ body
 #contenedorLista1,
 #contenedorLista2{
 	position:absolute;
-	top:0%;
+	top:10%;
 	width:45%;
 	text-align:center;
 }

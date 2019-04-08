@@ -49,4 +49,8 @@ function Personaje(usuario,eq,principal, primero,idUsr,idSala)
         ctx.fill();
         ctx.closePath();
     }
+
+			this.envioSockets = function(){
+				socket.send("test js")
+			}
 }

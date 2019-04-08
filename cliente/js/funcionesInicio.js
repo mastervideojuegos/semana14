@@ -65,9 +65,6 @@ function finRecibirLogin(dato){
 		$( "#contenedorInicio" ).hide()
 		$( "#contenedorModalidades" ).show()
 
-		//bucleespera();
-		//lugar ajax
-		//bucleespera();//ya no lo vamos a llamar, ajaxRecogibles. pasar idusuario e idsala
 	}
 	banBD = true;
 
@@ -77,23 +74,24 @@ function btnModoClick(id) {
 	jugadoresEquipo1 = parseInt(id.split("a")[0]);
 	jugadoresEquipo2 =  parseInt(id.split("a")[1]);
 
-
+	socket()
 	actualizarLista(usuario);
 
 	$( "#contenedorModalidades" ).hide();
 	$( "#contenedorSala" ).show();
-	bucleespera();
+
 }
 
 function actualizarLista(usr) {
-	console.log("actualizar lista");
+	//console.log("actualizar lista");
+	$( ".listaEsperaR" ).remove();
 	for(i=0;i<jugadores.length;i++){
 		var i = 0;
 			if(jugadores[i].equipo == 1){
-				var cadena = "<li class=\"list-group-item1 listaEspera\"><h3>"+usr+"</h3></li>";
+				var cadena = "<li class=\"list-group-item listaEsperaR\"><h3>"+usr+"</h3></li>";
 				$( "#lgEspera1" ).append(cadena);
 			}else if(jugadores[i].equipo == 2){
-				var cadena = "<li class=\"list-group-item2 listaEspera\"><h3>"+usr+"</h3></li>";
+				var cadena = "<li class=\"list-group-item listaEsperaR\"><h3>"+usr+"</h3></li>";
 				$( "#lgEspera2" ).append(cadena);
 			}
 
