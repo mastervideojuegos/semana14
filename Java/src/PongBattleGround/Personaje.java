@@ -17,16 +17,16 @@ public class Personaje extends Sprite implements Config {
     //int posX = 101;
     //int posY = 330;
     int vel = 10;
-    int direccion = 1;
+    int direccion = 0;
 
     //Dimensiones de Barra
-    int alto      = 32;
-    float ladoAlto	= (float) (alto * 0.5);
-    int altoMax 	= alto;
+    int alto      = 0;
+    int altoMax 	= 32;
+    float ladoAlto	= (float) (altoMax * 0.5);
 
     float ancho       = (float) (alto * 0.5);
-    float ladoAncho	= (float) (ancho * 0.5);
     float anchoMax 	= ancho;
+    float ladoAncho	= (float) (anchoMax * 0.5);
     
     public Personaje(String usuarioName,int eq,int principalVariable,int primeroVariable,String idUsr,String idRoom) 
     {  
@@ -56,13 +56,13 @@ public class Personaje extends Sprite implements Config {
     }
     public void colisionPared()
     {
-        if(posY + ladoAlto > HEIGTH)
+        if(posY + altoMax > HEIGTH)
         {
-            posY = (int) (WIDTH - ladoAlto);
+            posY = (int) (HEIGTH - altoMax);
         }
-        else if(posY - ladoAlto <0)
+        else if(posY - alto <0)
         {
-            posY = (int) ladoAlto;
+            posY = (int) alto;
         }
     }
     

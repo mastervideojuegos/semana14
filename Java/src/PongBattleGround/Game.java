@@ -125,6 +125,7 @@ public class Game extends JPanel implements Config {
             pelotas[i].dibujar(g);
             //System.out.println("Dibujar Bolas");
         }
+        
     }
 //----------- Funcion Crear Bolas ---------//
     public void crearBolas()
@@ -145,7 +146,7 @@ public class Game extends JPanel implements Config {
             jugadores[j].moverse();
             if(j > 0)
             {
-                if(jugadores[j].posY - jugadores[j].ladoAlto <=0 || jugadores[j].posY + jugadores[j].ladoAlto >= 1400)
+                if(jugadores[j].posY - jugadores[j].ladoAlto <=0 || jugadores[j].posY + jugadores[j].ladoAlto >= HEIGHT)
                 {
                     jugadores[j].direccion*=-1;
                 }
