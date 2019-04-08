@@ -1,7 +1,9 @@
-function bucle(){
+function bucle()
+{
   contextoFondo.clearRect(0, 0, camara.anchuraPantalla, camara.alturaPantalla);
   mapa.DibujarEscenario(contextoFondo,camara);
   uiClass.dibujarPuntos(contextoUI);
+  
   //Calcular movimientos
   calcularMovBola(mapa,jugadores);  //movimiento bola, aun no calcula angulos y demas, solo usa lo de la clase bola
   moverPersonaje(mapa); //movimeitno personaje propio

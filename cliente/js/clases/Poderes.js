@@ -1,78 +1,84 @@
 // Power Ups //
-var bPoderVisible       = false;
-var contadorPoderes     = 0;
+var bPoderVisible       = false;                                                // El poder esta visible
+var contadorPoderes     = 0;                                                    // Duracion del poder dibujado en pantalla
+var poderDibujado       = null;                                                 // Poder Dibujado
+var poderUtilizado      = null;                                                 // Poder utilizado
+var poderActivado       = false;                                                // El poder esta activo
+var contadorPoderActivo = 0;                                                    // Duracion del poder activo
 var bCongelaJugador     = false;
-var poderUtilizado      = 0;
 
-    // Bola //
-        //SuperBola
-        function SuperBola()
-        {
-            console.log("SuperBola");
-            return 2;
-        }
-        //MiniBola
-        function MiniBola()
-        {
-            console.log("MiniBola");
-            return 0.5;
-        }
-        //AceleraBola
-        function AceleraBola()
-        {
-            console.log("AceleraBola");
-            return 1.5;
-        }
-        //DeceleraBola
-        function DeceleraBola()
-        {
-            console.log("DeceleraBola");
-            return 0.5;
-        }
-        //MultiBola
-        function MultiBola()
-        {
-            console.log("MultiBola");
-            return 4;
-        }
-        //TeleBola
-        function TeleBola()
-        {
-            //TODO
-        }
-//---------------------------------------//
+//--------------- Bola ----------------------//
+function SuperBola()                                                            // SuperBola
+{
+  poderUtilizado = 0;
+  return 2;
+}
 
-    // Jugador //
-        //SuperJugador
-        function SuperJugador()
-        {
-            console.log("SuperJugador");
-            return 2;
-        }
-        //MiniJugador
-        function MiniJugador()
-        {
-            console.log("MiniJugador");
-            return 0.5;
-        }
-        //AceleraJugador
-        function AceleraJugador()
-        {
-            console.log("AceleraJugador");
-            return 1.5;
-        }
-        //DeceleraJugador
-        function DeceleraJugador()
-        {
-            console.log("DeceleraJugador");
-            return 0.5;
-        }
-        //CongelaJugador
-        function CongelaJugador()
-        {
-            console.log("CongelaJugador");
-            return true;
-        }
+function MiniBola()                                                             //MiniBola
+{
+  poderUtilizado = 1;
+  return 0.5;
+}
+
+function AceleraBola()                                                          //AceleraBola
+{
+  poderUtilizado = 2;
+  return 1.5;
+}
+
+function DeceleraBola()                                                         //DeceleraBola
+{
+  poderUtilizado = 3;
+  return 0.5;
+}
+
+function MultiBola()                                                            //MultiBola
+{
+  poderUtilizado = 4;
+  if(poderActivado)
+  {
+    cantidadBolas = 3;
+    for (var i = 0; i < cantidadBolas; i++)
+    {
+      pelotas.push(new Bola(mapa));
+    }
+  }
+  else
+  {
+    pelotas.splice(1, pelotas.length);
+  }
+}
+
+function TeleBola()                                                             //TeleBola
+{
+  poderUtilizado = 5;
+}
+
+//--------------- Jugador ----------------------//
+function SuperJugador()                                                         //SuperJugador
+{
+  return 2;
+}
+
+function MiniJugador()                                                          //MiniJugador
+{
+  return 0.5;
+}
+
+function AceleraJugador()                                                       //AceleraJugador
+{
+  return 1.5;
+}
+
+function DeceleraJugador()                                                      //DeceleraJugador
+{
+  return 0.5;
+}
+
+function CongelaJugador()                                                       //CongelaJugador
+{
+  return true;
+}
 //---------------------------------------//
 
 function PowerUps()
@@ -89,11 +95,11 @@ function PowerUps()
   {
     this.posX             = 200 + Math.random()*900;
     this.posY             = 200 + Math.random()*400;
-    this.centroX          = this.posX+this.radio+camara.posX;
-    this.centroY          = this.posY+this.radio+camara.posY;
-    this.indexPoder       = Math.floor(Math.random()*5.9);
+    this.centroX          = this.posX + this.radio + camara.posX;
+    this.centroY          = this.posY + this.radio + camara.posY;
+    this.indexPoder       = Math.floor(Math.random()*10.9);
     this.poderActual      = imgpoderes[this.indexPoder];
-    poderUtilizado        = this.indexPoder;
+    poderDibujado         = this.indexPoder;
   }
 
   this.dibujar = function(ctx, cam)
@@ -103,18 +109,32 @@ function PowerUps()
 
   this.buclePoderes = function()
   {
+    // Habilita un poder aleatorio
     if(contadorPoderes == 50)
     {
-        bPoderVisible = true;
-        this.valoresRandom();
+      bPoderVisible = true;
+      this.valoresRandom();
     }
+    // Dibuja el poder y lo muestra durante 50 unidades de tiempo
     if(contadorPoderes > 50 && contadorPoderes <= 100 && bPoderVisible)
     {
-        this.dibujar(contextoFondo, camara);
+      this.dibujar(contextoFondo, camara);
     }
+    // Resetea el contador de poderes
     if (contadorPoderes > 100)
     {
-        contadorPoderes = 0;
+      contadorPoderes = 0;
+    }
+    // Activa el poder durante 100 unidades de tiempo
+    if(poderActivado && contadorPoderActivo < 101)
+    {
+      contadorPoderActivo++
+    }
+    // Desactiva el poder
+    else if(poderActivado && contadorPoderActivo > 100)
+    {
+      poderActivado = false;
+      contadorPoderActivo = 0;
     }
   }
 }

@@ -1,22 +1,20 @@
-// Escenarios //
+//-------------Escenarios----------------//
 var escenarios = [];
 
     //Escenario Negro
     var fondo_1     = new Image();
         fondo_1.src = "img/escenario_1.jpg"
     escenarios.push(fondo_1);
-//---------------------------------------//
 
-// Bolas //
+//-------------Bolas--------------------//
 var bolas = [];
 
     //Bola Blanca
     var bola_1      = new Image();
         bola_1.src  = "img/bola_1.png";
     bolas.push(bola_1);
-//---------------------------------------//
 
-// Jugadores //
+//-----------Jugadores------------------//
 var jugadores = [];
 
     //Pad Amarillo
@@ -38,9 +36,8 @@ var jugadores = [];
     var pad_4       = new Image();
         pad_4.src   = "img/pad_4.jpg";
     jugadores.push(pad_4);
-//---------------------------------------//
 
-// Poderes //
+//--------------Poderes---------------//
 var imgpoderes = [];
 
     //SuperBola
@@ -72,4 +69,28 @@ var imgpoderes = [];
     var poder_6     = new Image();
         poder_6.src = "img/poderes/telebola.png";
     imgpoderes.push(poder_6);
-//---------------------------------------//
+
+    //SuperJugador
+    var poder_7     = new Image();
+        poder_7.src = "img/poderes/superjugador.png";
+    imgpoderes.push(poder_7);
+
+    //MiniJugador
+    var poder_8     = new Image();
+        poder_8.src = "img/poderes/minijugador.png";
+    imgpoderes.push(poder_8);
+
+    //AceleraJugador
+    var poder_9     = new Image();
+        poder_9.src = "img/poderes/acelerajugador.png";
+    imgpoderes.push(poder_9);
+
+    //DeceleraJugador
+    var poder_10     = new Image();
+        poder_10.src = "img/poderes/decelerajugador.png";
+    imgpoderes.push(poder_10);
+
+    //CongelaJugador
+    var poder_11     = new Image();
+        poder_11.src = "img/poderes/congelajugador.png";
+    imgpoderes.push(poder_11);

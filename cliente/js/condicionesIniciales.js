@@ -1,5 +1,4 @@
 //Lienzos
-
 console.log("cond ini")
 var contextoFondo = document.getElementById("lienzoFondo").getContext("2d");
 var contextoUI = document.getElementById("ui").getContext("2d");
@@ -18,12 +17,12 @@ var uiClass = new UI();
 var mapa1 = false;
 var mapa2 = true;
 
-var jugadores= new Array();//Array para los 4 jugadores
+var jugadores= new Array();                                                     //Array para los 4 jugadores
 //crearJugadores();
 
-
-var pelotas =new Array();//Array para las 4 pelotas
-crearBolas(mapa);
+var cantidadBolas = 1;
+var pelotas = new Array();                                                      //Array para las 4 pelotas
+crearBolas(mapa, cantidadBolas);
 
 var movimientoJugador=false;
 

@@ -1,16 +1,11 @@
 function Bola(mapa)
 {
-  this.radio    = 8;
-  this.radioMax = this.radio;
-
+  this.radio      = 8;
   this.posX       = 0;
   this.posY       = 0;
-
   this.velocidad  = 1;
   this.avanceX    = 0;
   this.avanceY    = 0;
-
-  //this.poderes = new Poderes();
 
   this.pelotaRandom = function(mapa)
   {
@@ -19,17 +14,24 @@ function Bola(mapa)
     this.posY       = Math.random()*(mapa.alto*0.33)+mapa.alto*0.33;
 
     //iniciar direccion
-    console.log(parseInt(Math.random()*2));
     this.avanceX = parseInt(Math.random()*2)*10-5;
     this.avanceY = parseInt(Math.random()*2)*10-5;
   }
 
   this.colicionPared = function(mapa,px,py)
   {
+    if(px - this.radio <= 0)                                                      // Punto Jugador Derecha
+    {
+      puntos_2++;
+		}
+    if(px + this.radio >= mapa.ancho)                                             // Punto Jugador Izquierda
+    {
+      puntos_1++;
+		}
+
     if(px-this.radio <=0 || px+this.radio >=mapa.ancho)
     {
-      this.pelotaRandom(mapa);
-        //Punto!!!!!
+      //this.pelotaRandom(mapa);
 		}
     if(py-this.radio <=0 || py+this.radio >=mapa.alto)
     {
@@ -57,9 +59,9 @@ function Bola(mapa)
   {
     if(Math.abs(this.posX+camara.posX - poderes.centroX) <= 16 && Math.abs(this.posY+camara.posY - poderes.centroY) <= 16 && bPoderVisible)
     {
-      puntos_1++;
+      poderActivado = true;
       bPoderVisible = false;
-      switch (poderUtilizado)
+      switch (poderDibujado)
       {
         case 0:
           this.radio = this.radio * SuperBola();
@@ -74,42 +76,79 @@ function Bola(mapa)
           this.velocidad = this.velocidad * DeceleraBola();
           break;
         case 4:
-          console.log("MultiBola");
+          MultiBola();
           break;
         case 5:
-          console.log("TeleBola");
+          this.pelotaRandom(mapa);
           break;
-        default:
+        case 6:
+          
+          break;
+        case 7:
+
+          break;
+        case 8:
+
+          break;
+        case 9:
+
+          break;
+        case 10:
+
+          break;
+        case 11:
+
+          break;
       }
 		}
   }
 
-  this.moverse = function(mapa,listaJugadores)
+  this.desactivarPoderes = function()
   {
-        //console.log("moviendose");
-        var tmpX = this.posX + (this.avanceX * this.velocidad);
-        var tmpY = this.posY + (this.avanceY * this.velocidad);
+    switch (poderUtilizado)
+    {
+      case 0:
+        this.radio = 8;
+        break;
+      case 1:
+        this.radio = 8;
+        break;
+      case 2:
+        this.velocidad = 1;
+        break;
+      case 3:
+        this.velocidad = 1;
+        break;
+      case 4:
+        MultiBola();
+        break;
+      case 5:
+        console.log("TeleBola");
+        break;
+      default:
+    }
+  }
 
-        this.colicionPared(mapa,tmpX,tmpY);
-		    this.colicionPersonajes(listaJugadores,tmpX,tmpY);
-        this.colisionPoderes();
+  this.moverse = function(mapa, listaJugadores)
+  {
+    var tmpX = this.posX + (this.avanceX * this.velocidad);
+    var tmpY = this.posY + (this.avanceY * this.velocidad);
 
-        this.posX += this.avanceX * this.velocidad;
-        this.posY += this.avanceY * this.velocidad;
-
-        //this.radio *= this.poderes(superbola)*/
+    this.colicionPared(mapa, tmpX, tmpY);
+		this.colicionPersonajes(listaJugadores, tmpX, tmpY);
+    this.colisionPoderes();
+    if(poderActivado == false)
+    {
+      this.desactivarPoderes();
+    }
+    this.posX += this.avanceX * this.velocidad;
+    this.posY += this.avanceY * this.velocidad;
   }
 
   this.dibujar = function(ctx,camara)
   {
-      /*ctx.beginPath();
-      ctx.moveTo(this.posX+camara.posX, this.posY+camara.posY);
-      ctx.lineTo(poderes.centroX, poderes.centroY);
-      ctx.lineWidth = 1;
-  	  ctx.strokeStyle = 'orange';
-      ctx.stroke();*/
-      ctx.drawImage(bolaActual, this.posX+camara.posX-this.radio, this.posY+camara.posY-this.radio, this.radio*2, this.radio*2);
-    }
+    ctx.drawImage(bolaActual, this.posX+camara.posX-this.radio, this.posY+camara.posY-this.radio, this.radio*2, this.radio*2);
+  }
 
-    this.pelotaRandom(mapa);
+  this.pelotaRandom(mapa);
 }
