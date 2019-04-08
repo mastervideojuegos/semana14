@@ -37,3 +37,9 @@ var jugadoresEquipo1 = 1;
 var jugadoresEquipo2 = 1;
 var jugadoresActuales1 = 0;
 var jugadoresActuales2 = 0;
+
+var jugadorGolpeaBola={};
+jugadorGolpeaBola[0]={jugador:"h",equipo:0,bolaId:-1};
+jugadorGolpeaBola[1]={jugador:"h",equipo:0,bolaId:-1};
+jugadorGolpeaBola[2]={jugador:"h",equipo:0,bolaId:-1};
+jugadorGolpeaBola[3]={jugador:"h",equipo:0,bolaId:-1};

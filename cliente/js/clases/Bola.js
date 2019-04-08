@@ -6,6 +6,7 @@ function Bola(mapa)
   this.velocidad  = 1;
   this.avanceX    = 0;
   this.avanceY    = 0;
+  this.id         = id;
 
   this.pelotaRandom = function(mapa)
   {
@@ -20,17 +21,18 @@ function Bola(mapa)
 
   this.colicionPared = function(mapa,px,py)
   {
-    if(px - this.radio <= 0)                                                      // Punto Jugador Derecha
+    if(px - this.radio <= 0)                                                    // Punto Jugador Derecha
     {
       puntos_2++;
 		}
-    if(px + this.radio >= mapa.ancho)                                             // Punto Jugador Izquierda
+    if(px + this.radio >= mapa.ancho)                                           // Punto Jugador Izquierda
     {
       puntos_1++;
 		}
 
     if(px-this.radio <=0 || px+this.radio >=mapa.ancho)
     {
+      jugadorGolpeaBola[this.id].jugador="h";
       //this.pelotaRandom(mapa);
 		}
     if(py-this.radio <=0 || py+this.radio >=mapa.alto)
@@ -49,6 +51,7 @@ function Bola(mapa)
     			py-this.radio <= jugadores[x].posY+jugadores[x].ladoAlto
     			)
       {
+        jugadorGolpeaBola[this.id].jugador=jugadores[x].usuario;
     	   console.log("colicion fin")
          this.avanceX *=-1;
     	}
@@ -82,7 +85,7 @@ function Bola(mapa)
           this.pelotaRandom(mapa);
           break;
         case 6:
-          
+
           break;
         case 7:
 

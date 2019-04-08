@@ -33,14 +33,45 @@ function Personaje(usuario, eq, principal, primero, idUsr, idSala)
 		{
 			this.posY = this.ladoAlto;
 		}
+
+		if(this.equipo==1)
+		{
+			if(this.posX < mapa.ancho/2)
+			{
+				this.posX=mapa.ancho/2+this.ladoAncho;
+			}
+			else if(this.posX+this.ladoAncho>mapa.ancho)
+			{
+				this.posX=mapa.ancho-this.ladoAncho;
+			}
+		}
+		else
+		{
+			if(this.posX < 0)
+			{
+				this.posX=this.ladoAncho;
+			}
+			else if(this.posX+this.ladoAncho>mapa.ancho/2)
+			{
+				this.posX=mapa.ancho/2-this.ladoAncho;
+			}
+		}
 	}
 
 	this.moverse = function(mapa)
 	{
 		if(!bCongelaJugador)
 		{
-			this.posY += this.vel*this.direccion;
-			this.colicionPared(mapa);
+			if(this.direccion==1||this.direccion==-1)
+			{
+				this.posY += this.vel*this.direccion;
+				this.colicionPared(mapa);
+			}
+			else
+			{
+				this.posX += this.vel*this.direccion/2;
+				this.colicionPared(mapa);
+			}
 		}
 	}
 

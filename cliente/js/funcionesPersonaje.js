@@ -18,12 +18,12 @@ function moverPersonaje(mapa)
 	}
 }
 
-function dibujarPersonajes(ctx,camara)
+function dibujarPersonajes(ctx, camara)
 {
 	//aca dibujo todos los personajes
-	for(let p=0;p<jugadores.length;p++)
+	for(let p = 0; p < jugadores.length; p++)
 	{
-		jugadores[p].dibujar(contextoFondo,camara);
+		jugadores[p].dibujar(contextoFondo, camara);
 		//ctx.drawImage(personajeActual, Jugadores[p].posX+camara.posX, Jugadores[p].posY+camara.posY-Jugadores[p].largo*0.5, Jugadores[p].largo*0.5, Jugadores[p].largo);
 	}
 }

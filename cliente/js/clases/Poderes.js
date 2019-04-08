@@ -6,6 +6,7 @@ var poderUtilizado      = null;                                                 
 var poderActivado       = false;                                                // El poder esta activo
 var contadorPoderActivo = 0;                                                    // Duracion del poder activo
 var bCongelaJugador     = false;
+var poderUtilizado      = 0;
 
 //--------------- Bola ----------------------//
 function SuperBola()                                                            // SuperBola

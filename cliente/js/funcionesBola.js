@@ -1,4 +1,4 @@
-function calcularMovBola(mapa,listaJugadores)
+function calcularMovBola(mapa, listaJugadores)
 {
 		for(var i=0;i<pelotas.length;i++)
 		{
@@ -16,5 +16,5 @@ function dibujarBolas(ctx,camara)
 
 function crearBolas(mapa, cantidadBolas)
 {
-		pelotas[0] = new Bola(mapa);
+		pelotas[cantidadBolas] = new Bola(mapa);
 }
