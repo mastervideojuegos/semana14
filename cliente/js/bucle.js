@@ -5,12 +5,12 @@ function bucle()
   uiClass.dibujarPuntos(contextoUI);
 
   //Calcular movimientos
-  calcularMovBola(mapa,jugadores);  //movimiento bola, aun no calcula angulos y demas, solo usa lo de la clase bola
-  moverPersonaje(mapa); //movimeitno personaje propio
+  calcularMovBola(mapa,jugadores);                                              //movimiento bola, aun no calcula angulos y demas, solo usa lo de la clase bola
+  moverPersonaje(mapa);                                                         //movimiento personaje propio
 
   //dibujar objetos
-  dibujarPersonajes(contextoFondo,camara);// dibuja todos los personajes
-  dibujarBolas(contextoFondo,camara); // dibuja las 4 pelotas
+  dibujarPersonajes(contextoFondo,camara);                                      // dibuja todos los personajes
+  dibujarBolas(contextoFondo,camara);                                           // dibuja las 4 pelotas
 
   contadorPoderes++;
   poderes.buclePoderes();

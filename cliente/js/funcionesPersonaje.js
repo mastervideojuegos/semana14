@@ -6,7 +6,7 @@ function moverPersonaje(mapa)
 	{
 		//if(Jugadores[j].principal==0&& movimientoJugador==true){//entendi que esta es para el movimiento del personaje que uno controla
 			jugadores[j].moverse(mapa);
-			if(j>0)
+			if(j > 0 && !bCongelaJugador)
 			{
 				if(jugadores[j].posY - jugadores[j].ladoAlto <=0 || jugadores[j].posY + jugadores[j].ladoAlto >=mapa.alto)
 				{
