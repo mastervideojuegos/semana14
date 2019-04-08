@@ -16,5 +16,8 @@ function dibujarBolas(ctx,camara)
 
 function crearBolas(mapa, cantidadBolas)
 {
-		pelotas[cantidadBolas] = new Bola(mapa);
+	for (var i = 0; i < cantidadBolas; i++)
+	{
+		pelotas.push(new Bola(mapa, cantidadBolas));
+	}
 }
