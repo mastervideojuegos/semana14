@@ -66,26 +66,24 @@ function inicio(){
  //Boton Listo
 	$( "#btnListo" ).click(function() {
     	$( "#btnListo" ).attr("disabled", "disabled");
-		$( "#contenedorSala" ).hide();
+		//$( "#contenedorSala" ).hide();
     	jugadores[0].listo = 1;
 	});
 
  //Boton cambiar equipo 1
 	$( "#btnCambiarEquipo1" ).click(function() {
+		console.log("click 1");
 		jugadores[0].equipo = 1;
 	});
 
 //Boton cambiar equipo 2
 	$( "#btnCambiarEquipo2" ).click(function() {
+		console.log("click 2");
 		jugadores[0].equipo = 2;
 	});
 
 //Boton Siguiente
-	$( "#btnSiguiente" ).click(function() {
-		$( "#contenedorModalidades" ).hide();
-		$( "#contenedorSala" ).show();
-		bucleespera();
-	});
+
 
 //Boton 1vs1
 	$( "#1vs1" ).click(function() {

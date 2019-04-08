@@ -2,12 +2,13 @@
 <html>
 	<head>
 		<title>Tarea Semana 13</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<script src="lib/Tween.js"></script>
 
 		<link rel="Stylesheet" href="css/estilo.css">
@@ -44,18 +45,21 @@
 		</div>
 
 		<div id="contenedorSala">
+			<div id="contenedorSalaTitulo">
+				<h1 class="tituloSala" id="salaTitulo">Titulo</h1><br>
+			</div>
 			<div id="contenedorLista1">
-				<h1 id="tituloSala1">Sala de espera equipo 1</h1><br>
+				<h1 class="tituloSala">Sala de espera equipo 1</h1><br>
 				<ul class="list-group" id="lgEspera1" >
-					<li class="list-group-item1 list-group-item-success1">
+					<li class="list-group-item">
 							<h2>Equipo 1</h2>
 					</li>
 				</ul>
 			</div>
 			<div id="contenedorLista2">
-				<h1 id="tituloSala2">Sala de espera equipo 2</h1><br>
+				<h1 class="tituloSala">Sala de espera equipo 2</h1><br>
 				<ul class="list-group" id="lgEspera2" >
-					<li class="list-group-item2 list-group-item-success2">
+					<li class="list-group-item">
 							<h2>Equipo 2</h2>
 					</li>
 				</ul>
@@ -68,12 +72,13 @@
 		</div>
 
 		<div id="contenedorModalidades">
-			<h1 id="tituloBotonesModalidades">Elige que modalidad quieres jugar</h1><br>
-			<button id="1vs1" type="button" class="btn btn-danger" style="width: 50%; margin: 5px; left: 50%;margin-right: 50%; transform: translate(50%,0%);">1 vs 1</button>
-			<button id="1vs2" type="button" class="btn btn-danger" style="width: 50%; margin: 5px; left: 50%;margin-right: 50%; transform: translate(50%,0%);">1 vs 2</button>
-			<button id="1vs3" type="button" class="btn btn-danger" style="width: 50%; margin: 5px; left: 50%;margin-right: 50%; transform: translate(50%,0%);">1 vs 3</button>
-			<button id="2vs2" type="button" class="btn btn-danger" style="width: 50%; margin: 5px; left: 50%;margin-right: 50%; transform: translate(50%,0%);">2 vs 2</button>
-			<button id="btnSiguiente" type="button" class="btn btn-danger">Siguiente</button>
+			<ul class="list-group" id="lgModo" >
+				<li class="list-group-item" id="lgModoItem" >
+					<h1 id="tituloBotonesModalidades">Elige que modalidad quieres jugar</h1><br>
+
+					</li>
+			</ul>
+
 		</div>
 
 		<div id="contenedorJuego">
@@ -87,8 +92,8 @@
 			<p id="idSignin" class="menuIzq">Sign In</p>
 		</div>
 
-		<script src="lib/jquery.js"></script>
 		<script src="lib/rotatecanvas.js"></script>
+		<script src="lib/sockets.js"></script>
 		<script src="js/clases/Graficos.js"></script>
 		<script src="js/clases/UI.js"></script>
 		<script src="js/clases/Poderes.js"></script>
@@ -100,6 +105,7 @@
 		<script src="js/funcionesBola.js"></script>
 		<script src="js/funcionesInicio.js"></script>
 		<script src="js/condicionesIniciales.js"></script>
+
 		<script src="js/inicio.js"></script>
 		<script src="js/controles.js"></script>
 		<script src="js/bucleespera.js"></script>
