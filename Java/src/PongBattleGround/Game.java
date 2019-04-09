@@ -190,7 +190,14 @@ public class Game extends JPanel implements Config {
     public void stopGame() {
         ingame = false;
         temporizador.cancel();
-    }     
+    }
+
+//---------- Funcion poderes -------------//
+    public void Poderes(){
+        Poderes p = null;
+        p.contadorPoderes++;
+        p.buclePoderes();
+    }
     
 //----------- Funcion Control de Teclas ---------//
     private class TAdapter extends KeyAdapter {

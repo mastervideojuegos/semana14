@@ -1,8 +1,10 @@
 package PongBattleGround;
 
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 
-public class Poderes {
+public class Poderes extends Graficos{
     
     // Power Ups //
 
@@ -17,6 +19,19 @@ public class Poderes {
     boolean bAceleraJugador     = false;
     boolean bDeceleraJugador    = false;
     boolean bCongelaJugador     = false;
+    boolean bPoderVisible = false;
+    int contadorPoderes = 0;
+    int poderUtilizado = 0;
+    
+    
+    Graficos graficos;
+    int radio = 16;
+    float posX = 0;
+    float posY = 0;
+    float centroX = 0;
+    float centroY = 0;
+    int indexPoder = 0;
+    ImageIcon poderActual;
 
     // Bola //
         //SuperBola
@@ -87,6 +102,35 @@ public class Poderes {
             bCongelaJugador = !bCongelaJugador;
             return bCongelaJugador;
         }
-
- 
+    
+        
+    // Power Ups
+    public void valoresRandom(){
+        posX = (float) (200 + Math.random()*900);
+        posY = (float) (200 + Math.random()*900);
+        centroX = posX + radio;
+        centroY = posY + radio;
+        indexPoder = (int) Math.floor(Math.random()*5.9);
+        poderActual = graficos.poderes(indexPoder);
+        poderUtilizado = indexPoder;
+    }
+    
+    public void dibujar(Graphics g){
+        g.drawImage(getImage(), getX(), getY(),getWidth(), getHeight(), null);
+    }
+    
+    public void buclePoderes(){
+        if(contadorPoderes == 50){
+            bPoderVisible = true;
+            valoresRandom();
+        }
+        if(contadorPoderes > 50 && contadorPoderes <= 100 && bPoderVisible)
+        {
+            // Dibujo el poder aquí
+        }
+        if (contadorPoderes > 100)
+        {
+            contadorPoderes = 0;
+        }
+    }
 }

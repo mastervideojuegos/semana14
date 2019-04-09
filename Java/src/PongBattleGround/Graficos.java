@@ -86,7 +86,7 @@ public class Graficos extends Sprite {
 //---------------------------------------//
     
     // Poderes //
-    public void poderes() 
+    public ImageIcon poderes(int poder) 
     {
         ImageIcon[] imgpoderes = new ImageIcon[5];
 
@@ -137,6 +137,8 @@ public class Graficos extends Sprite {
         width = image.getWidth(null);
         heigth = image.getHeight(null);
         imgpoderes[5] = imgPoderes6;
+        
+        return imgpoderes[poder];
     }
 //---------------------------------------//
 }
