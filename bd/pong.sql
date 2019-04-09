@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-03-2019 a las 20:39:25
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.2
+-- Tiempo de generación: 08-04-2019 a las 23:39:18
+-- Versión del servidor: 10.1.31-MariaDB
+-- Versión de PHP: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -18,7 +18,38 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Base de datos: `pong`
+--
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `modos`
+--
+
+CREATE TABLE `modos` (
+  `id` int(11) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  `equipo1` int(11) NOT NULL,
+  `equipo2` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+--
+-- Volcado de datos para la tabla `modos`
+--
+
+INSERT INTO `modos` (`id`, `descripcion`, `equipo1`, `equipo2`) VALUES
+(1, '1 vs 1', 1, 1),
+(2, '1 vs 2', 1, 2),
+(3, '1 vs 3', 1, 3),
+(4, '2 vs 2', 2, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `salas`
+--
 
 CREATE TABLE `salas` (
   `id` int(11) NOT NULL,
@@ -76,11 +107,18 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `usuario`, `contrasena`, `nombre`, `apellidos`, `utc`) VALUES
-(28, 'arbustus', 'arbustus', 'josemanuel', 'martinezroa', '1552823545');
+(28, 'arbustus', 'arbustus', 'josemanuel', 'martinezroa', '1552823545'),
+(29, 'a', 'a', 'a', 'a', '1554551253');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `modos`
+--
+ALTER TABLE `modos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `salas`
@@ -105,6 +143,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `modos`
+--
+ALTER TABLE `modos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `salas`
 --
 ALTER TABLE `salas`
@@ -114,7 +158,7 @@ ALTER TABLE `salas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

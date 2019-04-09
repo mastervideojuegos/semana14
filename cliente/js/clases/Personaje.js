@@ -128,4 +128,12 @@ function Personaje(usuario, eq, principal, primero, idUsr, idSala)
     ctx.fill();
     ctx.closePath();
   }
+
+	this.envioSockets = function()
+	{
+		var cadena = 	"s|" + jugadores[0].usuario +
+									"|" + jugadores[0].equipo
+									"|" + jugadores[0].listo;
+		socket.send(cadena)
+	}
 }

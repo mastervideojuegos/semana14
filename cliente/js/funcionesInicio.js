@@ -14,6 +14,7 @@ function reescalaVentana(){
 
 //login
 function enviarAjaxLogin(usr,psw){
+		console.log("enviar login");
 	//console.log("login: "+nombre)
 	if(banBD){
 		banBD = false;
@@ -22,7 +23,7 @@ function enviarAjaxLogin(usr,psw){
 			type: "POST",
 			dataType: "html",
 			contentType: "application/x-www-form-urlencoded",
-			url:"php/validarUsuario.php",
+			url:"php/logIn.php",
 			data:"usuario="+usr+"&contrasena="+psw,
 			//beforeSend:inicioEnvio,
 			success:finRecibirLogin,
@@ -36,39 +37,64 @@ function enviarAjaxLogin(usr,psw){
 }
 
 function finRecibirLogin(dato){
+	console.log("fin login:"+dato);
 	if(dato[0]=="E"){
 		$("#msgLogin").text(dato)
 		$( "#btnListo" ).attr("disabled", "enable");
 	}else{
-		var datos = dato.split("|");
-		var idUsr = parseInt(datos[0]);
-		var idSala = parseInt(datos[1]);
-		jugadores[0] = new Personaje(usuario,1,0,0, idUsr, idSala);
-		actualizarLista(usuario);
+		var usrDatos =  dato.split("&")[0];
+		var modoDatos = dato.split("&")[1];
+		var idUsr = parseInt(usrDatos.split("|")[1]);
+		datos = modoDatos.split(";")
+		for(var x in datos){
+			var id = datos[x].split("|")[3]+"a"+datos[x].split("|")[4]
+			var texto =datos[x].split("|")[2];
+			var cadena = "<button id=\""+ id+
+				"\" type=\"button\" class=\"btn btn-danger btnModo\">"+texto+"</button><br>";
+			$( "#lgModoItem	" ).append(cadena);
+			$( "#"+id ).click(function() {
+				btnModoClick(id);
+			});
+			//$('#'+id).click('click', '.'+id, btnModoClick(id));
+
+		}
+		jugadores[0] = new Personaje(usuario,1,0,0, idUsr, 0);
+
+
 
 		$( "#contenedorInicio" ).hide()
-		$( "#contenedorJuego" ).show()
+		$( "#contenedorModalidades" ).show()
 
-		//bucleespera();
-		//lugar ajax
-		//bucleespera();//ya no lo vamos a llamar, ajaxRecogibles. pasar idusuario e idsala
 	}
 	banBD = true;
 
 }
+function btnModoClick(id) {
+	console.log("btnModo: "+id);
+	jugadoresEquipo1 = parseInt(id.split("a")[0]);
+	jugadoresEquipo2 =  parseInt(id.split("a")[1]);
+
+	socket()
+	actualizarLista(usuario);
+
+	$( "#contenedorModalidades" ).hide();
+	$( "#contenedorSala" ).show();
+
+}
 
 function actualizarLista(usr) {
-	var i = 0;
+	//console.log("actualizar lista");
+	$( ".listaEsperaR" ).remove();
 	for(i=0;i<jugadores.length;i++){
-		if(jugadores[i].usuario == usr){
+		var i = 0;
 			if(jugadores[i].equipo == 1){
-				var cadena = "<li class=\"list-group-item1 listaEspera\"><h3>"+usr+"</h3></li>";
+				var cadena = "<li class=\"list-group-item listaEsperaR\"><h3>"+usr+"</h3></li>";
 				$( "#lgEspera1" ).append(cadena);
 			}else if(jugadores[i].equipo == 2){
-				var cadena = "<li class=\"list-group-item2 listaEspera\"><h3>"+usr+"</h3></li>";
+				var cadena = "<li class=\"list-group-item listaEsperaR\"><h3>"+usr+"</h3></li>";
 				$( "#lgEspera2" ).append(cadena);
 			}
-		}
+
 	}
 }
 
@@ -190,4 +216,3 @@ function actualizaExitoP(dato){
 
 	banBD = true;
 }
-
